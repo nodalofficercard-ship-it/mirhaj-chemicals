@@ -260,31 +260,15 @@ export function CataloguePage() {
       <SiteHeader />
 
       <main id="top">
-        <section className="bg-ink text-paper">
-          <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-gold">
-                ISO 9001:2015 · Lucknow
-              </p>
-              <h1 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
-                Your trusted crop protector
-              </h1>
-              <p className="mt-3 font-display text-xl text-gold">सुरक्षित फसल, बेहतर भविष्य</p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href="#range"
-                  className="inline-flex min-h-11 items-center rounded-full bg-teal px-5 text-sm font-semibold text-paper"
-                >
-                  See the packs
-                </a>
-                <a
-                  href="#contact"
-                  className="inline-flex min-h-11 items-center rounded-full border border-paper/30 px-5 text-sm font-semibold text-paper"
-                >
-                  Ask for a dealer
-                </a>
-              </div>
-            </div>
+        <section className="bg-black text-white">
+          <div className="relative overflow-hidden px-4 py-16 text-center md:py-24">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">
+              ISO 9001:2015 · Lucknow
+            </p>
+            <h1 className="boom-name mx-auto mt-5 max-w-5xl font-display text-6xl font-bold uppercase leading-[0.9] tracking-tight sm:text-8xl md:text-9xl">
+              Mirhaj
+              <span className="mt-3 block text-3xl tracking-[0.32em] sm:text-5xl md:text-6xl">Chemicals</span>
+            </h1>
           </div>
           <div className="roll-mask flex flex-col gap-6 pb-10" aria-label="Farmers and crops rolling across the screen">
             <RollingRow cards={FLASH_SCENES} full />

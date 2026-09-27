@@ -60,13 +60,42 @@
 .roll-mask:hover .roll-right {
   animation-play-state: paused;
 }
+.boom-name {
+  background-image: linear-gradient(
+    105deg,
+    #8a6a2a 0%,
+    #f8efc8 22%,
+    #ffffff 38%,
+    #e7c56a 50%,
+    #ffffff 62%,
+    #f8efc8 78%,
+    #8a6a2a 100%
+  );
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: name-shine 2.8s linear infinite;
+  filter: drop-shadow(0 0 22px rgba(231, 197, 106, 0.55));
+}
+
+@keyframes name-shine {
+  from {
+    background-position: 120% 0;
+  }
+  to {
+    background-position: -120% 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
   .pack-card,
   .roll-left,
-  .roll-right {
+  .roll-right,
+  .boom-name {
     animation: none;
     transition: none;
   }
