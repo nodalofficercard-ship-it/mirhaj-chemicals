@@ -60,31 +60,73 @@
 .roll-mask:hover .roll-right {
   animation-play-state: paused;
 }
-.boom-name {
-  background-image: linear-gradient(
-    105deg,
-    #8a6a2a 0%,
-    #f8efc8 22%,
-    #ffffff 38%,
-    #e7c56a 50%,
-    #ffffff 62%,
-    #f8efc8 78%,
-    #8a6a2a 100%
-  );
-  background-size: 220% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: name-shine 2.8s linear infinite;
-  filter: drop-shadow(0 0 22px rgba(231, 197, 106, 0.55));
+.hero-green {
+  background: linear-gradient(120deg, #063528, #0e7a52, #147a4b, #0a4a38);
+  background-size: 280% 280%;
+  animation: green-shift 10s ease-in-out infinite;
 }
 
-@keyframes name-shine {
-  from {
-    background-position: 120% 0;
+.hero-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.hero-orb-a {
+  top: -3rem;
+  left: 8%;
+  width: 16rem;
+  height: 16rem;
+  background: radial-gradient(circle, rgba(186, 242, 176, 0.55), transparent 68%);
+  animation: orb-drift 7s ease-in-out infinite;
+}
+
+.hero-orb-b {
+  right: 4%;
+  bottom: -4rem;
+  width: 18rem;
+  height: 18rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.28), transparent 70%);
+  animation: orb-drift 9s ease-in-out infinite reverse;
+}
+
+.boom-name {
+  animation: name-boom 2.4s ease-in-out infinite;
+  text-shadow: 0 0 24px rgba(210, 255, 214, 0.45);
+}
+
+@keyframes green-shift {
+  0% {
+    background-position: 0% 40%;
   }
-  to {
-    background-position: -120% 0;
+  50% {
+    background-position: 100% 60%;
+  }
+  100% {
+    background-position: 0% 40%;
+  }
+}
+
+@keyframes orb-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(24px, 18px, 0) scale(1.12);
+  }
+}
+
+@keyframes name-boom {
+  0%,
+  100% {
+    transform: scale(1);
+    letter-spacing: -0.03em;
+  }
+  50% {
+    transform: scale(1.045);
+    letter-spacing: 0.01em;
   }
 }
 
@@ -95,7 +137,10 @@
   .pack-card,
   .roll-left,
   .roll-right,
-  .boom-name {
+  .boom-name,
+  .hero-green,
+  .hero-orb-a,
+  .hero-orb-b {
     animation: none;
     transition: none;
   }

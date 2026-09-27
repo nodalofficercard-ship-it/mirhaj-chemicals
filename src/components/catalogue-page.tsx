@@ -260,12 +260,14 @@ export function CataloguePage() {
       <SiteHeader />
 
       <main id="top">
-        <section className="bg-black text-white">
-          <div className="relative overflow-hidden px-4 py-16 text-center md:py-24">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">
+        <section className="bg-[#04241c] text-white">
+          <div className="hero-green relative overflow-hidden px-4 py-20 text-center md:py-28">
+            <span className="hero-orb hero-orb-a" aria-hidden />
+            <span className="hero-orb hero-orb-b" aria-hidden />
+            <p className="relative text-xs font-semibold uppercase tracking-[0.35em] text-white/80">
               ISO 9001:2015 · Lucknow
             </p>
-            <h1 className="boom-name mx-auto mt-5 max-w-5xl font-display text-6xl font-bold uppercase leading-[0.9] tracking-tight sm:text-8xl md:text-9xl">
+            <h1 className="boom-name relative mx-auto mt-5 max-w-5xl font-display text-6xl font-bold uppercase leading-[0.9] tracking-tight text-white sm:text-8xl md:text-9xl">
               Mirhaj
               <span className="mt-3 block text-3xl tracking-[0.32em] sm:text-5xl md:text-6xl">Chemicals</span>
             </h1>
