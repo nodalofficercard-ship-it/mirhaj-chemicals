@@ -4,7 +4,21 @@ import { CATEGORIES, PRODUCTS, type Category, type Product } from "@/data/catalo
 
 const PHONE = "8175903666";
 const PHONE_HREF = "tel:+918175903666";
-const EMAIL = "mirhajchemicalspvtltd@gmail.com";
+const EMAIL = "info@mirhajchemicals.com";
+const WHATSAPP = "https://wa.me/918175903666";
+const FACEBOOK = "https://www.facebook.com/mirhajchemicals";
+const TWITTER = "https://x.com/mirhajchemicals";
+const INSTAGRAM = "https://www.instagram.com/mirhajchemicals";
+
+const TABS = [
+  { href: "#top", label: "Home" },
+  { href: "#about", label: "About us" },
+  { href: "#range", label: "Our Products" },
+  { href: "#catalogue", label: "Our catalogue" },
+  { href: "#gallery", label: "Our gallery" },
+  { href: "#contact", label: "Contact us" },
+  { href: "#careers", label: "Careers" },
+];
 
 const SAFETY = [
   "Read the leaflet before using any product.",
@@ -98,6 +112,112 @@ const NANO = [
   "13:40:13",
 ];
 
+function SocialIcon({ name }: { name: string }) {
+  const common = { viewBox: "0 0 24 24", className: "size-4", fill: "currentColor", "aria-hidden": true as const };
+  if (name === "WhatsApp") {
+    return (
+      <svg {...common}>
+        <path d="M20 11.5A8.5 8.5 0 0 1 7.1 18.6L4 20l1.5-3A8.5 8.5 0 1 1 20 11.5Zm-8.5 7a7 7 0 0 0 3.5-.9l.3-.2 2.1.6-.6-2 .2-.3A7 7 0 1 0 11.5 18.5Zm3.8-5.2c-.2-.1-1.2-.6-1.4-.7s-.3-.1-.5.1-.5.7-.7.8-.2.2-.4.1a5.7 5.7 0 0 1-1.7-1 6.3 6.3 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.1-.2a.4.4 0 0 0 0-.4c0-.1-.5-1.2-.7-1.6s-.3-.4-.5-.4h-.4a.8.8 0 0 0-.6.3 2.5 2.5 0 0 0-.8 1.8 4.3 4.3 0 0 0 .9 2.3 9.8 9.8 0 0 0 3.8 3.3 4.4 4.4 0 0 0 2.5.5 2.1 2.1 0 0 0 1.4-1 1.7 1.7 0 0 0 .1-1c-.1-.1-.2-.1-.4-.2Z" />
+      </svg>
+    );
+  }
+  if (name === "Facebook") {
+    return (
+      <svg {...common}>
+        <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1Z" />
+      </svg>
+    );
+  }
+  if (name === "X") {
+    return (
+      <svg {...common}>
+        <path d="M17.6 3H20l-6.2 7.1L21 21h-5.6l-4.4-6.1L6.2 21H3.7l6.6-7.6L3 3h5.7l4 5.6L17.6 3Zm-1 16.2h1.6L7.5 4.7H5.8l10.8 14.5Z" />
+      </svg>
+    );
+  }
+  if (name === "Instagram") {
+    return (
+      <svg {...common}>
+        <path d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5Zm8 1.8H8A3.2 3.2 0 0 0 4.8 8v8A3.2 3.2 0 0 0 8 19.2h8A3.2 3.2 0 0 0 19.2 16V8A3.2 3.2 0 0 0 16 4.8ZM12 8.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2Zm0 1.6A2.2 2.2 0 1 0 14.2 12 2.2 2.2 0 0 0 12 9.8Zm4.3-2.9a.9.9 0 1 1-.9.9.9.9 0 0 1 .9-.9Z" />
+      </svg>
+    );
+  }
+  return (
+    <svg {...common}>
+      <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5v-11Zm2.2.3 6.8 4.6 6.8-4.6H5.2Zm13.3 1.7-6 4a1.2 1.2 0 0 1-1.3 0l-6-4V17.5c0 .2.1.3.3.3h13c.2 0 .3-.1.3-.3V8.5Z" />
+    </svg>
+  );
+}
+
+function SiteHeader() {
+  const social = [
+    { name: "WhatsApp", href: WHATSAPP },
+    { name: "Facebook", href: FACEBOOK },
+    { name: "X", href: TWITTER },
+    { name: "Instagram", href: INSTAGRAM },
+    { name: "Email", href: `mailto:${EMAIL}` },
+  ];
+  return (
+    <header className="sticky top-0 z-30 border-b border-ink/10 bg-paper/95 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5">
+        <a href="#top" className="shrink-0">
+          <img src="/brand/logo-complete.jpg" alt="Mirhaj Chemicals" className="h-14 w-auto object-contain object-left" />
+        </a>
+        <div className="ml-auto flex items-center gap-2">
+          <div className="hidden items-center gap-1 sm:flex">
+            {social.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                aria-label={item.name}
+                title={item.name}
+                className="inline-flex size-10 items-center justify-center rounded-full text-ink/70 hover:bg-ink/5 hover:text-teal"
+              >
+                <SocialIcon name={item.name} />
+              </a>
+            ))}
+          </div>
+          <a
+            href="#enquiry"
+            className="inline-flex min-h-11 items-center rounded-full bg-teal px-4 text-sm font-semibold text-paper"
+          >
+            Enquiry now
+          </a>
+        </div>
+      </div>
+      <nav aria-label="Site" className="border-t border-ink/5">
+        <div className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-3 py-2">
+          {TABS.map((tab) => (
+            <a
+              key={tab.href}
+              href={tab.href}
+              className="shrink-0 rounded-full px-3.5 py-2 text-sm font-medium text-ink/75 hover:bg-ink hover:text-paper"
+            >
+              {tab.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+      <div className="flex justify-center gap-1 border-t border-ink/5 px-3 py-1.5 sm:hidden">
+        {social.map((item) => (
+          <a
+            key={item.name}
+            href={item.href}
+            target={item.href.startsWith("http") ? "_blank" : undefined}
+            rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+            aria-label={item.name}
+            className="inline-flex size-11 items-center justify-center rounded-full text-ink/70"
+          >
+            <SocialIcon name={item.name} />
+          </a>
+        ))}
+      </div>
+    </header>
+  );
+}
+
 function categoryLabel(id: Category) {
   return CATEGORIES.find((c) => c.id === id)?.label ?? id;
 }
@@ -137,35 +257,7 @@ export function CataloguePage() {
 
   return (
     <div className="min-h-dvh">
-      <header className="sticky top-0 z-30 border-b border-ink/10 bg-paper/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
-          <a href="#top" className="shrink-0">
-            <img src="/brand/logo-complete.jpg" alt="Mirhaj Chemicals" className="h-16 w-auto object-contain object-left" />
-          </a>
-          <nav className="ml-auto flex items-center gap-1 overflow-x-auto text-sm font-medium">
-            <a className="rounded-full px-3 py-2 text-ink/80 hover:bg-ink/5 hover:text-ink" href="#range">
-              Range
-            </a>
-            <a className="rounded-full px-3 py-2 text-ink/80 hover:bg-ink/5 hover:text-ink" href="/team">
-              Team
-            </a>
-            <a className="rounded-full px-3 py-2 text-ink/80 hover:bg-ink/5 hover:text-ink" href="#about">
-              About
-            </a>
-            <a className="rounded-full px-3 py-2 text-ink/80 hover:bg-ink/5 hover:text-ink" href="#safety">
-              Safety
-            </a>
-            <a
-              className="ml-1 inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-teal text-paper sm:w-auto sm:gap-2 sm:px-4"
-              href={PHONE_HREF}
-              aria-label={`Call customer care ${PHONE}`}
-            >
-              <Phone className="size-4" aria-hidden />
-              <span className="hidden sm:inline">{PHONE}</span>
-            </a>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main id="top">
         <section className="bg-ink text-paper">
@@ -271,7 +363,7 @@ export function CataloguePage() {
           )}
         </section>
 
-        <section className="bg-card">
+        <section id="catalogue" className="bg-card">
           <div className="mx-auto max-w-6xl px-4 py-12">
             <p className="text-xs font-semibold uppercase tracking-widest text-teal">The full line</p>
             <h2 className="mt-1 font-display text-3xl">From the catalogue lineup</h2>
@@ -350,6 +442,87 @@ export function CataloguePage() {
           </div>
         </section>
 
+        <section id="gallery" className="bg-card">
+          <div className="mx-auto max-w-6xl px-4 py-14">
+            <p className="text-xs font-semibold uppercase tracking-widest text-teal">Our gallery</p>
+            <h2 className="mt-1 font-display text-3xl">Fields and packs</h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { src: "/flash/cabbage-spray.jpg", title: "Protected spray in cabbage" },
+                { src: "/flash/field-team.jpg", title: "Team in the standing crop" },
+                { src: "/flash/paddy-spray.jpg", title: "Spraying the paddy" },
+                ...PRODUCTS.slice(0, 6).map((product) => ({
+                  src: `/products/${product.slug}.jpg`,
+                  title: product.name,
+                })),
+              ].map((shot) => (
+                <figure key={shot.src} className="overflow-hidden rounded-2xl border border-ink/10 bg-paper">
+                  <img src={shot.src} alt={shot.title} className="h-56 w-full object-contain" />
+                  <figcaption className="px-3 py-2 text-sm font-medium">{shot.title}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="careers" className="mx-auto max-w-6xl px-4 py-14">
+          <p className="text-xs font-semibold uppercase tracking-widest text-teal">Careers</p>
+          <h2 className="mt-1 font-display text-3xl">Work with Mirhaj</h2>
+          <p className="mt-4 max-w-2xl text-ink/80">
+            We look for people in field sales, production and the Lucknow office. Send your name,
+            the role you want, and your phone number to {EMAIL}.
+          </p>
+          <a
+            href={`mailto:${EMAIL}?subject=Career%20at%20Mirhaj%20Chemicals`}
+            className="mt-6 inline-flex min-h-11 items-center rounded-full border border-ink/15 px-5 text-sm font-semibold"
+          >
+            Write for a role
+          </a>
+        </section>
+
+        <section id="enquiry" className="bg-ink text-paper">
+          <div className="mx-auto max-w-6xl px-4 py-14">
+            <p className="text-xs font-semibold uppercase tracking-widest text-gold">Enquiry now</p>
+            <h2 className="mt-1 font-display text-3xl">Ask for a product or a dealer</h2>
+            <form
+              className="mt-6 grid max-w-xl gap-3"
+              onSubmit={(event) => {
+                event.preventDefault();
+                const data = new FormData(event.currentTarget);
+                const name = String(data.get("name") ?? "").trim();
+                const phone = String(data.get("phone") ?? "").trim();
+                const message = String(data.get("message") ?? "").trim();
+                const text = `Enquiry from ${name}, ${phone}. ${message}`;
+                window.open(`${WHATSAPP}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
+              }}
+            >
+              <label className="text-sm">
+                Name
+                <input name="name" required className="mt-1 w-full rounded-xl bg-paper px-3 py-3 text-ink" />
+              </label>
+              <label className="text-sm">
+                Phone
+                <input name="phone" required inputMode="tel" className="mt-1 w-full rounded-xl bg-paper px-3 py-3 text-ink" />
+              </label>
+              <label className="text-sm">
+                Message
+                <textarea name="message" required rows={4} className="mt-1 w-full rounded-xl bg-paper px-3 py-3 text-ink" />
+              </label>
+              <div className="flex flex-wrap gap-3">
+                <button type="submit" className="inline-flex min-h-11 items-center rounded-full bg-teal px-5 text-sm font-semibold text-paper">
+                  Send on WhatsApp
+                </button>
+                <a
+                  href={`mailto:${EMAIL}?subject=Enquiry%20for%20Mirhaj%20Chemicals`}
+                  className="inline-flex min-h-11 items-center rounded-full border border-paper/30 px-5 text-sm font-semibold"
+                >
+                  Email {EMAIL}
+                </a>
+              </div>
+            </form>
+          </div>
+        </section>
+
         <section id="contact" className="mx-auto max-w-6xl px-4 py-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-teal">Contact</p>
           <h2 className="mt-1 font-display text-3xl">Talk to customer care</h2>
@@ -386,7 +559,7 @@ export function CataloguePage() {
       </main>
 
       <footer className="border-t border-ink/10 px-4 py-6 text-center text-xs text-ink/60">
-        Mirhaj Chemicals Private Limited · MCPL · Lucknow
+        Mirhaj Chemicals Private Limited · MCPL · Lucknow · {EMAIL}
       </footer>
 
       {selected ? (
