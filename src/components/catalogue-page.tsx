@@ -21,13 +21,9 @@ const SAFETY = [
 ];
 
 const FLASH_SCENES: FlashCard[] = [
-  { src: "/flash/farmer.jpg", kicker: "Farmer", title: "Spray in the field", fit: "cover" },
-  { src: "/flash/cabbage-spray.jpg", kicker: "Farmer", title: "Protected spray", fit: "cover" },
-  { src: "/flash/wheat.jpg", kicker: "Crop", title: "Wheat", fit: "cover" },
-  { src: "/flash/field-team.jpg", kicker: "Farmer", title: "In the standing crop", fit: "cover" },
-  { src: "/flash/chilli.jpg", kicker: "Crop", title: "Chilli and cotton", fit: "cover" },
-  { src: "/flash/paddy-spray.jpg", kicker: "Farmer", title: "Spraying the paddy", fit: "cover" },
-  { src: "/flash/field.jpg", kicker: "Farmer", title: "Across the standing crop", fit: "cover" },
+  { src: "/flash/cabbage-spray.jpg", kicker: "Farmer", title: "Protected spray", fit: "contain" },
+  { src: "/flash/field-team.jpg", kicker: "Farmer", title: "In the standing crop", fit: "contain" },
+  { src: "/flash/paddy-spray.jpg", kicker: "Farmer", title: "Spraying the paddy", fit: "contain" },
 ];
 
 const FLASH_PACKS: FlashCard[] = [
