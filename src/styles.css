@@ -60,35 +60,24 @@
 .roll-mask:hover .roll-right {
   animation-play-state: paused;
 }
-.hero-green {
-  background: linear-gradient(120deg, #063528, #0e7a52, #147a4b, #0a4a38);
-  background-size: 280% 280%;
-  animation: green-shift 10s ease-in-out infinite;
+.flash-shot {
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1s ease;
 }
 
-.hero-orb {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(8px);
-  pointer-events: none;
+.flash-shot.is-on {
+  opacity: 1;
+  animation: flash-ken 7s ease-out forwards;
 }
 
-.hero-orb-a {
-  top: -3rem;
-  left: 8%;
-  width: 16rem;
-  height: 16rem;
-  background: radial-gradient(circle, rgba(186, 242, 176, 0.55), transparent 68%);
-  animation: orb-drift 7s ease-in-out infinite;
-}
-
-.hero-orb-b {
-  right: 4%;
-  bottom: -4rem;
-  width: 18rem;
-  height: 18rem;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.28), transparent 70%);
-  animation: orb-drift 9s ease-in-out infinite reverse;
+@keyframes flash-ken {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .boom-name {
@@ -138,9 +127,7 @@
   .roll-left,
   .roll-right,
   .boom-name,
-  .hero-green,
-  .hero-orb-a,
-  .hero-orb-b {
+  .flash-shot {
     animation: none;
     transition: none;
   }

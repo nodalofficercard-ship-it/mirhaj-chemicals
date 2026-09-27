@@ -218,6 +218,72 @@ function SiteHeader() {
   );
 }
 
+function FlashStage() {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setIndex((current) => (current + 1) % FLASH_SCENES.length);
+    }, 5600);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const go = (step: number) => {
+    setIndex((current) => (current + step + FLASH_SCENES.length) % FLASH_SCENES.length);
+  };
+
+  return (
+    <div className="relative h-[72vh] min-h-[440px] max-h-[720px] overflow-hidden bg-[#063528]">
+      {FLASH_SCENES.map((card, i) => (
+        <img
+          key={card.src}
+          src={card.src}
+          alt={i === index ? card.title : ""}
+          className={`flash-shot absolute inset-0 h-full w-full object-cover ${i === index ? "is-on" : ""}`}
+        />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/10" />
+      <div className="relative z-10 mx-auto flex h-full max-w-6xl items-center px-6 md:px-10">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/80">Welcome to</p>
+          <h1 className="boom-name mt-3 text-4xl font-semibold italic leading-tight text-white sm:text-6xl md:text-7xl">
+            Mirhaj Chemicals Private Limited
+          </h1>
+          <p className="mt-4 text-sm font-medium uppercase tracking-[0.22em] text-white/75">
+            {FLASH_SCENES[index]?.title}
+          </p>
+        </div>
+      </div>
+      <button
+        type="button"
+        className="absolute left-3 top-1/2 z-10 inline-flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-2xl text-white hover:bg-black/60"
+        onClick={() => go(-1)}
+        aria-label="Previous photo"
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        className="absolute right-3 top-1/2 z-10 inline-flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-2xl text-white hover:bg-black/60"
+        onClick={() => go(1)}
+        aria-label="Next photo"
+      >
+        ›
+      </button>
+      <div className="absolute bottom-5 left-0 right-0 z-10 flex justify-center gap-2">
+        {FLASH_SCENES.map((card, i) => (
+          <button
+            key={card.src}
+            type="button"
+            aria-label={card.title}
+            onClick={() => setIndex(i)}
+            className={`h-2.5 rounded-full transition-all ${i === index ? "w-9 bg-white" : "w-2.5 bg-white/55"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function categoryLabel(id: Category) {
   return CATEGORIES.find((c) => c.id === id)?.label ?? id;
 }
@@ -261,18 +327,8 @@ export function CataloguePage() {
 
       <main id="top">
         <section className="bg-[#04241c] text-white">
-          <div className="hero-green relative overflow-hidden px-4 py-20 text-center md:py-28">
-            <span className="hero-orb hero-orb-a" aria-hidden />
-            <span className="hero-orb hero-orb-b" aria-hidden />
-            <p className="relative text-xs font-semibold uppercase tracking-[0.35em] text-white/80">
-              ISO 9001:2015 · Lucknow
-            </p>
-            <h1 className="boom-name relative mx-auto mt-5 max-w-5xl px-2 font-serif text-4xl font-semibold italic leading-tight text-white sm:text-6xl md:text-7xl">
-              Mirhaj Chemicals Private Limited
-            </h1>
-          </div>
-          <div className="roll-mask flex flex-col gap-6 pb-10" aria-label="Farmers and crops rolling across the screen">
-            <RollingRow cards={FLASH_SCENES} full />
+          <FlashStage />
+          <div className="roll-mask pb-8 pt-6" aria-label="Product packs rolling">
             <RollingRow cards={FLASH_PACKS} reverse />
           </div>
         </section>
