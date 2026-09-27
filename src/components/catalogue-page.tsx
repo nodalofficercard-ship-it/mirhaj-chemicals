@@ -181,19 +181,19 @@ function SiteHeader() {
           </div>
           <a
             href="#enquiry"
-            className="inline-flex min-h-11 items-center rounded-full bg-teal px-4 text-sm font-semibold text-paper"
+            className="inline-flex min-h-12 items-center rounded-full bg-teal px-5 text-base font-bold text-paper"
           >
             Enquiry now
           </a>
         </div>
       </div>
-      <nav aria-label="Site" className="border-t border-ink/5">
-        <div className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-3 py-2">
+      <nav aria-label="Site" className="border-t border-ink/10 bg-paper">
+        <div className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-3 py-3">
           {TABS.map((tab) => (
             <a
               key={tab.href}
               href={tab.href}
-              className="shrink-0 rounded-full px-3.5 py-2 text-sm font-medium text-ink/75 hover:bg-ink hover:text-paper"
+              className="shrink-0 rounded-full border border-ink/15 bg-white px-4 py-2.5 text-lg font-bold tracking-tight text-ink hover:border-teal hover:bg-teal hover:text-paper"
             >
               {tab.label}
             </a>
