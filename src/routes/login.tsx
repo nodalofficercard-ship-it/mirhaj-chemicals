@@ -49,7 +49,7 @@ function LoginPage() {
     <main className="grid min-h-dvh place-items-center bg-paper px-4 py-10">
       <div className="w-full max-w-md rounded-3xl border border-ink/10 bg-card p-6 shadow-sm sm:p-8">
         <a href="/" className="inline-block">
-          <img src="/brand/logo.jpg" alt="Mirhaj Chemicals" className="h-12 w-auto" />
+          <img src="/brand/logo-full.jpg" alt="Mirhaj Chemicals" className="h-12 w-auto" />
         </a>
         <h1 className="mt-6 font-display text-3xl text-ink">Team desk</h1>
         <p className="mt-2 text-sm leading-relaxed text-ink/70">

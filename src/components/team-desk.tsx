@@ -30,7 +30,7 @@ function SignedOutDesk() {
   return (
     <main className="grid min-h-dvh place-items-center bg-paper px-4">
       <div className="max-w-md text-center">
-        <img src="/brand/logo.jpg" alt="" className="mx-auto h-12 w-auto" />
+        <img src="/brand/logo-full.jpg" alt="" className="mx-auto h-12 w-auto" />
         <h1 className="mt-4 font-display text-3xl text-ink">Team desk</h1>
         <p className="mt-2 text-sm text-ink/70">Sign in to see stock, enquiries and dispatches.</p>
         <a
@@ -104,7 +104,7 @@ function Desk() {
       <header className="sticky top-0 z-20 border-b border-ink/10 bg-paper/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3">
           <a href="/">
-            <img src="/brand/logo.jpg" alt="Mirhaj Chemicals" className="h-10 w-auto" />
+            <img src="/brand/logo-full.jpg" alt="Mirhaj Chemicals" className="h-10 w-auto" />
           </a>
           <p className="font-display text-xl text-ink">Team desk</p>
           <div className="ml-auto">
