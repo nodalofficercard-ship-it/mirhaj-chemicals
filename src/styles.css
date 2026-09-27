@@ -92,8 +92,10 @@
 }
 
 .boom-name {
-  animation: name-boom 2.4s ease-in-out infinite;
-  text-shadow: 0 0 24px rgba(210, 255, 214, 0.45);
+  font-family: Cambria, "Palatino Linotype", Palatino, Georgia, serif;
+  font-style: italic;
+  animation: name-boom 3.2s ease-in-out infinite;
+  text-shadow: 0 0 18px rgba(210, 255, 214, 0.4);
 }
 
 @keyframes green-shift {
@@ -122,11 +124,9 @@
   0%,
   100% {
     transform: scale(1);
-    letter-spacing: -0.03em;
   }
   50% {
-    transform: scale(1.045);
-    letter-spacing: 0.01em;
+    transform: scale(1.03);
   }
 }
 
