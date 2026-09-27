@@ -22,8 +22,11 @@ const SAFETY = [
 
 const FLASH_SCENES: FlashCard[] = [
   { src: "/flash/farmer.jpg", kicker: "Farmer", title: "Spray in the field", fit: "cover" },
+  { src: "/flash/cabbage-spray.jpg", kicker: "Farmer", title: "Protected spray", fit: "cover" },
   { src: "/flash/wheat.jpg", kicker: "Crop", title: "Wheat", fit: "cover" },
+  { src: "/flash/field-team.jpg", kicker: "Farmer", title: "In the standing crop", fit: "cover" },
   { src: "/flash/chilli.jpg", kicker: "Crop", title: "Chilli and cotton", fit: "cover" },
+  { src: "/flash/paddy-spray.jpg", kicker: "Farmer", title: "Spraying the paddy", fit: "cover" },
   { src: "/flash/field.jpg", kicker: "Farmer", title: "Across the standing crop", fit: "cover" },
 ];
 
@@ -188,16 +191,7 @@ export function CataloguePage() {
             </div>
             <div className="roll-mask flex flex-col gap-4" aria-label="Crops, farmers and packs, rolling">
               <RollingRow
-                cards={[
-                  FLASH_SCENES[0],
-                  FLASH_PACKS[0],
-                  FLASH_SCENES[1],
-                  FLASH_PACKS[1],
-                  FLASH_SCENES[2],
-                  FLASH_PACKS[2],
-                  FLASH_SCENES[3],
-                  FLASH_PACKS[3],
-                ]}
+                cards={FLASH_SCENES.flatMap((scene, index) => [scene, FLASH_PACKS[index % FLASH_PACKS.length]])}
               />
               <RollingRow cards={FLASH_PACKS} reverse />
             </div>
