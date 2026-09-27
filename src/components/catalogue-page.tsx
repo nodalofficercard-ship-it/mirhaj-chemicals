@@ -55,21 +55,33 @@ type FlashCard = {
   fit: "cover" | "contain";
 };
 
-function RollingRow({ cards, reverse }: { cards: FlashCard[]; reverse?: boolean }) {
+function RollingRow({
+  cards,
+  reverse,
+  full,
+}: {
+  cards: FlashCard[];
+  reverse?: boolean;
+  full?: boolean;
+}) {
   const loop = [...cards, ...cards];
   return (
     <div className="overflow-hidden">
-      <div className={`${reverse ? "roll-right" : "roll-left"} flex w-max gap-3`}>
+      <div className={`${reverse ? "roll-right" : "roll-left"} flex w-max gap-4`}>
         {loop.map((card, index) => {
           const copy = index >= cards.length;
           return (
-            <figure key={`${card.src}-${index}`} className="w-40 shrink-0" aria-hidden={copy}>
+            <figure key={`${card.src}-${index}`} className={full ? "w-[min(88vw,40rem)] shrink-0" : "w-40 shrink-0"} aria-hidden={copy}>
               <img
                 src={card.src}
                 alt={copy ? "" : card.title}
-                className={`h-28 w-full rounded-2xl bg-paper ${card.fit === "cover" ? "object-cover object-center" : "object-contain p-2"}`}
+                className={
+                  full
+                    ? "h-64 w-full rounded-2xl bg-white object-contain sm:h-80"
+                    : `h-28 w-full rounded-2xl bg-paper ${card.fit === "cover" ? "object-cover object-center" : "object-contain p-2"}`
+                }
               />
-              <figcaption className="mt-2">
+              <figcaption className="mt-2 px-1">
                 <span className="text-xs font-semibold uppercase tracking-wider text-gold">{card.kicker}</span>
                 <span className="mt-0.5 block text-sm text-paper">{card.title}</span>
               </figcaption>
@@ -161,7 +173,7 @@ export function CataloguePage() {
 
       <main id="top">
         <section className="bg-ink text-paper">
-          <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 md:grid-cols-2 md:py-16">
+          <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-gold">
                 ISO 9001:2015 · Lucknow
@@ -170,10 +182,6 @@ export function CataloguePage() {
                 Your trusted crop protector
               </h1>
               <p className="mt-3 font-display text-xl text-gold">सुरक्षित फसल, बेहतर भविष्य</p>
-              <p className="mt-4 max-w-xl text-base text-paper/80">
-                Insecticides, fungicides, herbicides and crop nutrition from Mirhaj Chemicals.
-                Every pack below is the bottle, pouch or carton from our April 2026 catalogue.
-              </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
                   href="#range"
@@ -189,12 +197,10 @@ export function CataloguePage() {
                 </a>
               </div>
             </div>
-            <div className="roll-mask flex flex-col gap-4" aria-label="Crops, farmers and packs, rolling">
-              <RollingRow
-                cards={FLASH_SCENES.flatMap((scene, index) => [scene, FLASH_PACKS[index % FLASH_PACKS.length]])}
-              />
-              <RollingRow cards={FLASH_PACKS} reverse />
-            </div>
+          </div>
+          <div className="roll-mask flex flex-col gap-6 pb-10" aria-label="Farmers and crops rolling across the screen">
+            <RollingRow cards={FLASH_SCENES} full />
+            <RollingRow cards={FLASH_PACKS} reverse />
           </div>
         </section>
 
