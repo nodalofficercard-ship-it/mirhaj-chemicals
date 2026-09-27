@@ -129,7 +129,7 @@ export function CataloguePage() {
       <header className="sticky top-0 z-30 border-b border-ink/10 bg-paper/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
           <a href="#top" className="shrink-0">
-            <img src="/brand/logo-full.jpg" alt="Mirhaj Chemicals" className="h-12 w-auto" />
+            <img src="/brand/logo-full.jpg" alt="Mirhaj Chemicals" className="h-16 w-auto object-contain object-left" />
           </a>
           <nav className="ml-auto flex items-center gap-1 overflow-x-auto text-sm font-medium">
             <a className="rounded-full px-3 py-2 text-ink/80 hover:bg-ink/5 hover:text-ink" href="#range">
