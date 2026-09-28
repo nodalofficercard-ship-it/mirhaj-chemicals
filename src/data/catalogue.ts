@@ -19,7 +19,7 @@ export const CATEGORIES: { id: Category; label: string }[] = [
   { id: "pgr", label: "PGR & fertilizer" },
 ];
 
-const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil", "meribion", "hygeia-potash-ultra", "mirogent-ultra", "mirogent", "mizura", "ballistic", "mirajo-star", "bounce-back"]);
+const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil", "meribion", "hygeia-potash-ultra", "mirogent-ultra", "mirogent", "mizura", "ballistic", "mirajo-star", "bounce-back", "jaishu"]);
 
 export function packPhoto(slug: string) {
   const version = FULL_BOTTLES.has(slug) ? "bottle" : "catalogue";
@@ -370,7 +370,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "jaishu",
-    name: "Jaishu",
+    name: "Arocon",
     technical: "Azoxystrobin 8.3% + Mancozeb 66.7% WG",
     category: "fungicide",
     summary: "Systemic and contact fungicide for vegetable and fruit diseases.",

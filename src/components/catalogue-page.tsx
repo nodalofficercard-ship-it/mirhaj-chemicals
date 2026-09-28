@@ -50,7 +50,7 @@ const FLASH_PACKS: FlashCard[] = [
   ["cluster-75", "Cluster-75"],
   ["futerra", "Futerra"],
   ["miracle", "Miracle"],
-  ["jaishu", "Jaishu"],
+  ["jaishu", "Arocon"],
 ].map(([slug, title]) => ({
   src: packPhoto(slug),
   kicker: "Pack",
