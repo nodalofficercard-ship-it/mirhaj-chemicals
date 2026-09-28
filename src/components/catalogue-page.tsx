@@ -417,14 +417,14 @@ export function CataloguePage() {
                 <li key={product.slug}>
                   <button
                     type="button"
-                    className="pack-card flex h-full w-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-card text-left transition duration-200 hover:-translate-y-0.5 hover:border-teal/50"
+                    className="pack-card flex h-full w-full flex-col rounded-2xl border border-ink/10 bg-card text-left transition duration-200 hover:-translate-y-0.5 hover:border-teal/50"
                     onClick={() => setSelected(product)}
                   >
-                    <span className="flex aspect-4/5 items-center justify-center bg-paper p-3">
+                    <span className="relative block aspect-[3/4] w-full bg-paper">
                       <img
                         src={`/products/${product.slug}.jpg`}
                         alt={`${product.name} pack`}
-                        className="max-h-full max-w-full object-contain"
+                        className="absolute inset-0 h-full w-full object-contain p-2"
                         loading="lazy"
                       />
                     </span>
