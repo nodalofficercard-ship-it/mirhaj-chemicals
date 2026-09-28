@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Mail, MapPin, Phone, Search, ShieldCheck, X } from "lucide-react";
+import { ChevronDown, Mail, MapPin, Phone, Search, ShieldCheck, X } from "lucide-react";
 import { CATEGORIES, PRODUCTS, packPhoto, productsInIndex, type Category, type Product } from "@/data/catalogue";
 
 const PHONE = "8175903666";
@@ -290,7 +290,7 @@ function categoryLabel(id: Category) {
 }
 
 export function CataloguePage() {
-  const [open, setOpen] = useState<Category | null>(null);
+  const [openIds, setOpenIds] = useState<Category[]>([]);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Product | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -314,6 +314,17 @@ export function CataloguePage() {
       ),
     }));
   }, [query]);
+
+  function toggleCategory(id: Category) {
+    setOpenIds((current) =>
+      current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
+    );
+  }
+
+  useEffect(() => {
+    if (!searching) return;
+    setOpenIds(groups.filter((group) => group.items.length > 0).map((group) => group.id));
+  }, [searching, groups]);
 
   useEffect(() => {
     if (!selected) return;
@@ -396,50 +407,60 @@ export function CataloguePage() {
 
           <div className="mt-8 divide-y divide-ink/10 overflow-hidden rounded-2xl border border-ink/10 bg-card">
             {groups.map((group) => {
-              const shown = searching ? group.items.length > 0 : open === group.id;
+              const shown = openIds.includes(group.id);
+              const panelId = `products-${group.id}`;
               return (
                 <div key={group.id}>
                   <button
                     type="button"
                     aria-expanded={shown}
-                    className="flex min-h-14 w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-6"
-                    onClick={() => setOpen(open === group.id ? null : group.id)}
+                    aria-controls={panelId}
+                    className={`flex min-h-14 w-full items-center justify-between gap-4 px-4 py-4 text-left transition sm:px-6 ${shown ? "bg-teal text-paper" : "hover:bg-paper"}`}
+                    onClick={() => toggleCategory(group.id)}
                   >
                     <span className="font-display text-2xl">
                       {group.number}. {group.label}
                     </span>
-                    <span className="text-sm font-semibold text-teal">{shown ? "Hide" : "Open"}</span>
+                    <ChevronDown
+                      aria-hidden
+                      className={`size-6 shrink-0 transition-transform duration-300 ${shown ? "rotate-180" : ""}`}
+                    />
                   </button>
-                  {shown ? (
-                    group.items.length === 0 ? (
-                      <p className="px-4 pb-6 text-sm text-ink/70 sm:px-6">No packs in this group match that search.</p>
-                    ) : (
-                      <ul className="grid grid-cols-2 gap-3 px-3 pb-6 sm:grid-cols-3 sm:gap-4 sm:px-6 lg:grid-cols-4">
-                        {group.items.map((product) => (
-                          <li key={product.slug}>
-                            <button
-                              type="button"
-                              className="pack-card flex h-full w-full flex-col rounded-2xl border border-ink/10 bg-paper text-left transition duration-200 hover:-translate-y-0.5 hover:border-teal/50"
-                              onClick={() => setSelected(product)}
-                            >
-                              <span className="relative block aspect-[3/4] w-full">
-                                <img
-                                  src={packPhoto(product.slug)}
-                                  alt={`${product.name} pack`}
-                                  className="absolute inset-0 h-full w-full object-contain p-2"
-                                  loading="lazy"
-                                />
-                              </span>
-                              <span className="flex flex-1 flex-col gap-1 p-3 sm:p-4">
-                                <span className="font-display text-lg leading-tight">{product.name}</span>
-                                <span className="text-sm leading-snug text-ink/70">{product.technical}</span>
-                              </span>
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    )
-                  ) : null}
+                  <div
+                    id={panelId}
+                    className={`grid transition-[grid-template-rows] duration-300 ease-out ${shown ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+                  >
+                    <div className="overflow-hidden" inert={shown ? undefined : true}>
+                      {group.items.length === 0 ? (
+                        <p className="px-4 py-6 text-sm text-ink/70 sm:px-6">No packs in this group match that search.</p>
+                      ) : (
+                        <ul className="grid grid-cols-2 gap-3 px-3 py-6 sm:grid-cols-3 sm:gap-4 sm:px-6 lg:grid-cols-4">
+                          {group.items.map((product) => (
+                            <li key={product.slug}>
+                              <button
+                                type="button"
+                                className="pack-card flex h-full w-full flex-col rounded-2xl border border-ink/10 bg-paper text-left transition duration-200 hover:-translate-y-0.5 hover:border-teal/50"
+                                onClick={() => setSelected(product)}
+                              >
+                                <span className="relative block aspect-[3/4] w-full">
+                                  <img
+                                    src={packPhoto(product.slug)}
+                                    alt={`${product.name} pack`}
+                                    className="absolute inset-0 h-full w-full object-contain p-2"
+                                    loading="lazy"
+                                  />
+                                </span>
+                                <span className="flex flex-1 flex-col gap-1 p-3 sm:p-4">
+                                  <span className="font-display text-lg leading-tight">{product.name}</span>
+                                  <span className="text-sm leading-snug text-ink/70">{product.technical}</span>
+                                </span>
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
                 </div>
               );
             })}
