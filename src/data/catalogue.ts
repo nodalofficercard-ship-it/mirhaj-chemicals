@@ -19,7 +19,7 @@ export const CATEGORIES: { id: Category; label: string }[] = [
   { id: "pgr", label: "PGR & fertilizer" },
 ];
 
-const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil", "meribion", "hygeia-potash-ultra", "mirogent-ultra", "mirogent", "mizura", "ballistic", "mirajo-star", "bounce-back", "jaishu", "kerogen", "faster", "futerra", "miromycin", "iconic", "ekaiv", "haven", "pendency"]);
+const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil", "meribion", "hygeia-potash-ultra", "mirogent-ultra", "mirogent", "mizura", "ballistic", "mirajo-star", "bounce-back", "jaishu", "kerogen", "faster", "futerra", "miromycin", "iconic", "ekaiv", "haven", "pendency", "mirostar-top"]);
 
 export function packPhoto(slug: string) {
   const version = FULL_BOTTLES.has(slug) ? "bottle" : "catalogue";
