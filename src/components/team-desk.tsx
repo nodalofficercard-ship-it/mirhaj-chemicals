@@ -145,7 +145,7 @@ function Desk() {
               {visible.map((row) => (
                 <li key={row.id} className="flex items-center gap-3 px-3 py-3">
                   <img
-                    src={`/products/${row.slug}.jpg?v=${row.slug === "miraxima-plus" ? "bottle" : "catalogue"}`}
+                    src={`/products/${row.slug}.jpg?v=${row.slug === "miraxima-plus" || row.slug === "merofex-super" ? "bottle" : "catalogue"}`}
                     alt=""
                     className="h-14 w-12 shrink-0 object-contain"
                   />
