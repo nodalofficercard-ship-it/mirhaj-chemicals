@@ -245,8 +245,9 @@ function FlashStage() {
       <div className="relative z-10 mx-auto flex h-full max-w-6xl items-center px-6 md:px-10">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/80">Welcome to</p>
-          <h1 className="boom-name mt-3 text-4xl font-semibold italic leading-tight text-white sm:text-6xl md:text-7xl">
-            Mirhaj Chemicals Private Limited
+          <h1 className="boom-name mt-3 text-5xl font-semibold italic leading-tight text-white sm:text-7xl">
+            Mirhaj Chemicals
+            <span className="mt-2 block text-3xl font-normal sm:text-5xl">Private Limited</span>
           </h1>
           <p className="mt-4 text-sm font-medium uppercase tracking-[0.22em] text-white/75">
             {FLASH_SCENES[index]?.title}
