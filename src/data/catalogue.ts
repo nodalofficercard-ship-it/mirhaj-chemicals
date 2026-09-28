@@ -19,7 +19,7 @@ export const CATEGORIES: { id: Category; label: string }[] = [
   { id: "pgr", label: "PGR & fertilizer" },
 ];
 
-const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil", "meribion", "hygeia-potash-ultra", "mirogent-ultra", "mirogent", "mizura"]);
+const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil", "meribion", "hygeia-potash-ultra", "mirogent-ultra", "mirogent", "mizura", "ballistic"]);
 
 export function packPhoto(slug: string) {
   const version = FULL_BOTTLES.has(slug) ? "bottle" : "catalogue";
@@ -227,7 +227,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "ballistic",
-    name: "Ballistic",
+    name: "Lumora Glow",
     technical: "Emamectin Benzoate 1.50% + Fipronil 3.5% SC",
     category: "insecticide",
     summary: "Dual-action mix for thrips, caterpillars, aphids and whiteflies.",
