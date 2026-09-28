@@ -52,7 +52,7 @@ const FLASH_PACKS: FlashCard[] = [
   ["miracle", "Miracle"],
   ["jaishu", "Jaishu"],
 ].map(([slug, title]) => ({
-  src: `/products/${slug}.jpg?v=full`,
+  src: `/products/${slug}.jpg?v=catalogue`,
   kicker: "Pack",
   title,
   fit: "contain" as const,
@@ -422,7 +422,7 @@ export function CataloguePage() {
                   >
                     <span className="relative block aspect-[3/4] w-full bg-paper">
                       <img
-                        src={`/products/${product.slug}.jpg?v=full`}
+                        src={`/products/${product.slug}.jpg?v=catalogue`}
                         alt={`${product.name} pack`}
                         className="absolute inset-0 h-full w-full object-contain p-2"
                         loading="lazy"
@@ -652,7 +652,7 @@ export function CataloguePage() {
             <div className="grid md:grid-cols-2">
               <div className="flex items-center justify-center bg-paper p-6">
                 <img
-                  src={`/products/${selected.slug}.jpg?v=full`}
+                  src={`/products/${selected.slug}.jpg?v=catalogue`}
                   alt={`${selected.name} pack`}
                   className="max-h-96 w-full object-contain"
                 />
