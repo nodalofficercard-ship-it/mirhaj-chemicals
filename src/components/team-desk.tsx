@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { SignInGate, UserButton } from "@/lib/auth/gates";
+import { packPhoto } from "@/data/catalogue";
 import {
   addDispatch,
   addEnquiry,
@@ -145,7 +146,7 @@ function Desk() {
               {visible.map((row) => (
                 <li key={row.id} className="flex items-center gap-3 px-3 py-3">
                   <img
-                    src={`/products/${row.slug}.jpg?v=${row.slug === "miraxima-plus" || row.slug === "merofex-super" ? "bottle" : "catalogue"}`}
+                    src={packPhoto(row.slug)}
                     alt=""
                     className="h-14 w-12 shrink-0 object-contain"
                   />

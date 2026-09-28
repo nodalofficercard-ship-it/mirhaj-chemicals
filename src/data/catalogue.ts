@@ -19,6 +19,13 @@ export const CATEGORIES: { id: Category; label: string }[] = [
   { id: "pgr", label: "PGR & fertilizer" },
 ];
 
+const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil"]);
+
+export function packPhoto(slug: string) {
+  const version = FULL_BOTTLES.has(slug) ? "bottle" : "catalogue";
+  return `/products/${slug}.jpg?v=${version}`;
+}
+
 export const PRODUCTS: Product[] = [
   {
     slug: "mirhaj-super-505",
