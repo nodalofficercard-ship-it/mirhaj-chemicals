@@ -290,33 +290,30 @@ function categoryLabel(id: Category) {
 }
 
 export function CataloguePage() {
-  const [filter, setFilter] = useState<Category | "all">("all");
+  const [open, setOpen] = useState<Category | null>(null);
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Product | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  const visible = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    const matched = PRODUCTS.filter((p) => {
-      if (filter !== "all" && p.category !== filter) return false;
-      if (!q) return true;
-      return [p.name, p.technical, p.crops, p.targets, p.summary, categoryLabel(p.category)]
-        .join(" ")
-        .toLowerCase()
-        .includes(q);
-    });
-    return productsInIndex(matched);
-  }, [filter, query]);
+  const searching = query.trim().length > 0;
 
-  const groups = useMemo(
-    () =>
-      CATEGORIES.map((category, index) => ({
-        ...category,
-        number: index + 1,
-        items: visible.filter((product) => product.category === category.id),
-      })).filter((group) => group.items.length > 0),
-    [visible],
-  );
+  const groups = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return CATEGORIES.map((category, index) => ({
+      ...category,
+      number: index + 1,
+      items: productsInIndex(
+        PRODUCTS.filter((product) => {
+          if (product.category !== category.id) return false;
+          if (!q) return true;
+          return [product.name, product.technical, product.crops, product.targets, product.summary, category.label]
+            .join(" ")
+            .toLowerCase()
+            .includes(q);
+        }),
+      ),
+    }));
+  }, [query]);
 
   useEffect(() => {
     if (!selected) return;
@@ -383,83 +380,73 @@ export function CataloguePage() {
         </section>
 
         <section id="range" className="mx-auto max-w-6xl px-4 py-12">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-teal">Catalogue</p>
-              <h2 className="mt-1 font-display text-3xl">Bottles and packs</h2>
-            </div>
-            <p className="text-sm text-ink/70">{visible.length} of {PRODUCTS.length} products</p>
-          </div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-teal">Catalogue</p>
+          <h2 className="mt-1 font-display text-3xl">Our product</h2>
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <label className="relative min-w-0 flex-1">
-              <span className="sr-only">Search products</span>
-              <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-ink/50" />
-              <input
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search name, crop or technical"
-                className="min-h-11 w-full rounded-full border border-ink/15 bg-card py-2 pr-4 pl-10 text-sm outline-none focus:border-teal"
-              />
-            </label>
-            <div className="flex gap-2 overflow-x-auto" role="group" aria-label="Filter by category">
-              <FilterChip active={filter === "all"} onClick={() => setFilter("all")}>
-                All
-              </FilterChip>
-              {CATEGORIES.map((category) => (
-                <FilterChip
-                  key={category.id}
-                  active={filter === category.id}
-                  onClick={() => setFilter(category.id)}
-                >
-                  {category.label}
-                </FilterChip>
-              ))}
-            </div>
-          </div>
+          <label className="relative mt-6 block max-w-xl">
+            <span className="sr-only">Search products</span>
+            <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-ink/50" />
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search name, crop or technical"
+              className="min-h-11 w-full rounded-full border border-ink/15 bg-card py-2 pr-4 pl-10 text-sm outline-none focus:border-teal"
+            />
+          </label>
 
-          {visible.length === 0 ? (
-            <p className="mt-10 rounded-2xl border border-ink/10 bg-card px-6 py-10 text-center text-ink/70">
-              No packs match that search. Try a crop, a pest, or a technical name.
-            </p>
-          ) : (
-            <div className="mt-10 space-y-12">
-              {groups.map((group) => (
-                <section key={group.id} aria-labelledby={`index-${group.id}`}>
-                  <h3 id={`index-${group.id}`} className="font-display text-2xl text-ink">
-                    {group.number}. {group.label}
-                  </h3>
-                  <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-                    {group.items.map((product) => (
-                      <li key={product.slug}>
-                        <button
-                          type="button"
-                          className="pack-card flex h-full w-full flex-col rounded-2xl border border-ink/10 bg-card text-left transition duration-200 hover:-translate-y-0.5 hover:border-teal/50"
-                          onClick={() => setSelected(product)}
-                        >
-                          <span className="relative block aspect-[3/4] w-full bg-paper">
-                            <img
-                              src={packPhoto(product.slug)}
-                              alt={`${product.name} pack`}
-                              className="absolute inset-0 h-full w-full object-contain p-2"
-                              loading="lazy"
-                            />
-                          </span>
-                          <span className="flex flex-1 flex-col gap-1 p-3 sm:p-4">
-                            <span className="text-xs font-semibold uppercase tracking-wider text-teal">
-                              {categoryLabel(product.category)}
-                            </span>
-                            <span className="font-display text-lg leading-tight">{product.name}</span>
-                            <span className="text-sm leading-snug text-ink/70">{product.technical}</span>
-                          </span>
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </div>
-          )}
+          <div className="mt-8 divide-y divide-ink/10 overflow-hidden rounded-2xl border border-ink/10 bg-card">
+            {groups.map((group) => {
+              const shown = searching ? group.items.length > 0 : open === group.id;
+              return (
+                <div key={group.id}>
+                  <button
+                    type="button"
+                    aria-expanded={shown}
+                    className="flex min-h-14 w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-6"
+                    onClick={() => setOpen(open === group.id ? null : group.id)}
+                  >
+                    <span className="font-display text-2xl">
+                      {group.number}. {group.label}
+                    </span>
+                    <span className="text-sm font-semibold text-teal">{shown ? "Hide" : "Open"}</span>
+                  </button>
+                  {shown ? (
+                    group.items.length === 0 ? (
+                      <p className="px-4 pb-6 text-sm text-ink/70 sm:px-6">No packs in this group match that search.</p>
+                    ) : (
+                      <ul className="grid grid-cols-2 gap-3 px-3 pb-6 sm:grid-cols-3 sm:gap-4 sm:px-6 lg:grid-cols-4">
+                        {group.items.map((product) => (
+                          <li key={product.slug}>
+                            <button
+                              type="button"
+                              className="pack-card flex h-full w-full flex-col rounded-2xl border border-ink/10 bg-paper text-left transition duration-200 hover:-translate-y-0.5 hover:border-teal/50"
+                              onClick={() => setSelected(product)}
+                            >
+                              <span className="relative block aspect-[3/4] w-full">
+                                <img
+                                  src={packPhoto(product.slug)}
+                                  alt={`${product.name} pack`}
+                                  className="absolute inset-0 h-full w-full object-contain p-2"
+                                  loading="lazy"
+                                />
+                              </span>
+                              <span className="flex flex-1 flex-col gap-1 p-3 sm:p-4">
+                                <span className="font-display text-lg leading-tight">{product.name}</span>
+                                <span className="text-sm leading-snug text-ink/70">{product.technical}</span>
+                              </span>
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    )
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+          {searching && groups.every((group) => group.items.length === 0) ? (
+            <p className="mt-6 text-sm text-ink/70">No packs match that search. Try a crop, a pest, or a technical name.</p>
+          ) : null}
         </section>
 
         <section id="catalogue" className="bg-card">
@@ -720,31 +707,6 @@ export function CataloguePage() {
         </div>
       ) : null}
     </div>
-  );
-}
-
-function FilterChip({
-  active,
-  onClick,
-  children,
-}: {
-  active: boolean;
-  onClick: () => void;
-  children: string;
-}) {
-  return (
-    <button
-      type="button"
-      aria-pressed={active}
-      onClick={onClick}
-      className={
-        active
-          ? "min-h-11 shrink-0 rounded-full bg-ink px-4 text-sm font-medium text-paper"
-          : "min-h-11 shrink-0 rounded-full border border-ink/15 bg-card px-4 text-sm font-medium text-ink"
-      }
-    >
-      {children}
-    </button>
   );
 }
 
