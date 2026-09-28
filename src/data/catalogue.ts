@@ -22,7 +22,7 @@ export const CATEGORIES: { id: Category; label: string }[] = [
 export const PRODUCTS: Product[] = [
   {
     slug: "mirhaj-super-505",
-    name: "Mirhaj Super-505",
+    name: "Mithel Super-505",
     technical: "Chlorpyriphos 50% + Cypermethrin 5% EC",
     category: "insecticide",
     summary: "Broad-spectrum insecticide for sucking pests and borers in field crops.",
