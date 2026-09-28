@@ -6,7 +6,7 @@ const PHONE = "8175903666";
 const PHONE_HREF = "tel:+918175903666";
 const EMAIL = "info@mirhajchemicals.com";
 const WHATSAPP = "https://wa.me/918175903666";
-const FACEBOOK = "https://www.facebook.com/mirhajchemicals";
+const FACEBOOK = "https://www.facebook.com/share/18XYEzAmu8/";
 const TWITTER = "https://x.com/mirhajchemicals";
 const INSTAGRAM = "https://www.instagram.com/mirhajchemicals";
 
