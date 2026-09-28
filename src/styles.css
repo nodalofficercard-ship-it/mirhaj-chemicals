@@ -80,11 +80,15 @@
   }
 }
 
+.flash-blue {
+  color: #2f6bff;
+  text-shadow: none;
+}
+
 .boom-name {
   font-family: Cambria, "Palatino Linotype", Palatino, Georgia, serif;
   font-style: italic;
   animation: name-boom 3.2s ease-in-out infinite;
-  text-shadow: 0 0 18px rgba(210, 255, 214, 0.4);
 }
 
 @keyframes green-shift {
