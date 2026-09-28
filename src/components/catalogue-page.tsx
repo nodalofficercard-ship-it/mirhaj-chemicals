@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Mail, MapPin, Phone, Search, ShieldCheck, X } from "lucide-react";
-import { CATEGORIES, PRODUCTS, packPhoto, type Category, type Product } from "@/data/catalogue";
+import { CATEGORIES, PRODUCTS, packPhoto, productsInIndex, type Category, type Product } from "@/data/catalogue";
 
 const PHONE = "8175903666";
 const PHONE_HREF = "tel:+918175903666";
@@ -46,11 +46,11 @@ const FLASH_PACKS: FlashCard[] = [
   ["pound-up", "Pound Up"],
   ["mira-71", "Mira-71"],
   ["pookie-zyme", "Pookie Zyme"],
-  ["ballistic", "Lumora Glow"],
+  ["ballistic", "Ballistic"],
   ["cluster-75", "Cluster-75"],
   ["futerra", "Futerra"],
   ["miracle", "Miracle"],
-  ["jaishu", "Arocon"],
+  ["jaishu", "Jaishu"],
 ].map(([slug, title]) => ({
   src: packPhoto(slug),
   kicker: "Pack",
@@ -297,7 +297,7 @@ export function CataloguePage() {
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return PRODUCTS.filter((p) => {
+    const matched = PRODUCTS.filter((p) => {
       if (filter !== "all" && p.category !== filter) return false;
       if (!q) return true;
       return [p.name, p.technical, p.crops, p.targets, p.summary, categoryLabel(p.category)]
@@ -305,7 +305,18 @@ export function CataloguePage() {
         .toLowerCase()
         .includes(q);
     });
+    return productsInIndex(matched);
   }, [filter, query]);
+
+  const groups = useMemo(
+    () =>
+      CATEGORIES.map((category, index) => ({
+        ...category,
+        number: index + 1,
+        items: visible.filter((product) => product.category === category.id),
+      })).filter((group) => group.items.length > 0),
+    [visible],
+  );
 
   useEffect(() => {
     if (!selected) return;
@@ -412,33 +423,42 @@ export function CataloguePage() {
               No packs match that search. Try a crop, a pest, or a technical name.
             </p>
           ) : (
-            <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-              {visible.map((product) => (
-                <li key={product.slug}>
-                  <button
-                    type="button"
-                    className="pack-card flex h-full w-full flex-col rounded-2xl border border-ink/10 bg-card text-left transition duration-200 hover:-translate-y-0.5 hover:border-teal/50"
-                    onClick={() => setSelected(product)}
-                  >
-                    <span className="relative block aspect-[3/4] w-full bg-paper">
-                      <img
-                        src={packPhoto(product.slug)}
-                        alt={`${product.name} pack`}
-                        className="absolute inset-0 h-full w-full object-contain p-2"
-                        loading="lazy"
-                      />
-                    </span>
-                    <span className="flex flex-1 flex-col gap-1 p-3 sm:p-4">
-                      <span className="text-xs font-semibold uppercase tracking-wider text-teal">
-                        {categoryLabel(product.category)}
-                      </span>
-                      <span className="font-display text-lg leading-tight">{product.name}</span>
-                      <span className="text-sm leading-snug text-ink/70">{product.technical}</span>
-                    </span>
-                  </button>
-                </li>
+            <div className="mt-10 space-y-12">
+              {groups.map((group) => (
+                <section key={group.id} aria-labelledby={`index-${group.id}`}>
+                  <h3 id={`index-${group.id}`} className="font-display text-2xl text-ink">
+                    {group.number}. {group.label}
+                  </h3>
+                  <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+                    {group.items.map((product) => (
+                      <li key={product.slug}>
+                        <button
+                          type="button"
+                          className="pack-card flex h-full w-full flex-col rounded-2xl border border-ink/10 bg-card text-left transition duration-200 hover:-translate-y-0.5 hover:border-teal/50"
+                          onClick={() => setSelected(product)}
+                        >
+                          <span className="relative block aspect-[3/4] w-full bg-paper">
+                            <img
+                              src={packPhoto(product.slug)}
+                              alt={`${product.name} pack`}
+                              className="absolute inset-0 h-full w-full object-contain p-2"
+                              loading="lazy"
+                            />
+                          </span>
+                          <span className="flex flex-1 flex-col gap-1 p-3 sm:p-4">
+                            <span className="text-xs font-semibold uppercase tracking-wider text-teal">
+                              {categoryLabel(product.category)}
+                            </span>
+                            <span className="font-display text-lg leading-tight">{product.name}</span>
+                            <span className="text-sm leading-snug text-ink/70">{product.technical}</span>
+                          </span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
               ))}
-            </ul>
+            </div>
           )}
         </section>
 
