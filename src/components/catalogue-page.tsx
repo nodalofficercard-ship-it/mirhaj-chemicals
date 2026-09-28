@@ -334,6 +334,43 @@ export function CataloguePage() {
           </div>
         </section>
 
+        <section className="bg-paper" aria-label="What we do">
+          <div className="mx-auto grid max-w-6xl gap-4 px-4 py-10 md:grid-cols-3">
+            {[
+              {
+                href: "#range",
+                src: "/flash/cabbage-spray.jpg",
+                kicker: "The range",
+                title: "Packs for the crop in front of you",
+                action: "See the products",
+              },
+              {
+                href: "#about",
+                src: "/flash/field-team.jpg",
+                kicker: "The company",
+                title: "Made for dealers and farmers",
+                action: "About us",
+              },
+              {
+                href: "#enquiry",
+                src: "/flash/paddy-spray.jpg",
+                kicker: "The field",
+                title: "Ask before the season starts",
+                action: "Enquiry now",
+              },
+            ].map((card) => (
+              <a key={card.href} href={card.href} className="group overflow-hidden rounded-3xl bg-ink text-paper">
+                <img src={card.src} alt="" className="h-52 w-full object-cover transition duration-500 group-hover:scale-105" />
+                <div className="p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">{card.kicker}</p>
+                  <h2 className="mt-2 font-display text-2xl leading-tight">{card.title}</h2>
+                  <p className="mt-4 text-sm font-semibold text-white/80 group-hover:text-white">{card.action}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
         <section id="range" className="mx-auto max-w-6xl px-4 py-12">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
