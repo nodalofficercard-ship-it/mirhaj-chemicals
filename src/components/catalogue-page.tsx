@@ -164,7 +164,7 @@ function SiteHeader() {
           <img src="/brand/logo-complete.jpg" alt="Mirhaj Chemicals" className="h-14 w-auto object-contain object-left" />
         </a>
         <div className="ml-auto flex items-center gap-2">
-          <div className="hidden items-center gap-1 sm:flex">
+          <div className="hidden items-center gap-0.5 rounded-full bg-[#0c4f86] px-1.5 py-1 sm:flex">
             {social.map((item) => (
               <a
                 key={item.name}
@@ -173,7 +173,7 @@ function SiteHeader() {
                 rel={item.href.startsWith("http") ? "noreferrer" : undefined}
                 aria-label={item.name}
                 title={item.name}
-                className="inline-flex size-10 items-center justify-center rounded-full text-ink/70 hover:bg-ink/5 hover:text-teal"
+                className="inline-flex size-9 items-center justify-center rounded-full text-white hover:bg-white/20"
               >
                 <SocialIcon name={item.name} />
               </a>
@@ -200,7 +200,7 @@ function SiteHeader() {
           ))}
         </div>
       </nav>
-      <div className="flex justify-center gap-1 border-t border-ink/5 px-3 py-1.5 sm:hidden">
+      <div className="flex justify-center gap-1 bg-[#0c4f86] px-3 py-2 sm:hidden">
         {social.map((item) => (
           <a
             key={item.name}
@@ -208,7 +208,7 @@ function SiteHeader() {
             target={item.href.startsWith("http") ? "_blank" : undefined}
             rel={item.href.startsWith("http") ? "noreferrer" : undefined}
             aria-label={item.name}
-            className="inline-flex size-11 items-center justify-center rounded-full text-ink/70"
+            className="inline-flex size-11 items-center justify-center rounded-full text-white"
           >
             <SocialIcon name={item.name} />
           </a>
