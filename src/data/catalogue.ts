@@ -19,7 +19,7 @@ export const CATEGORIES: { id: Category; label: string }[] = [
   { id: "pgr", label: "PGR & fertilizer" },
 ];
 
-const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil", "meribion", "hygeia-potash-ultra", "mirogent-ultra", "mirogent", "mizura", "ballistic", "mirajo-star"]);
+const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil", "meribion", "hygeia-potash-ultra", "mirogent-ultra", "mirogent", "mizura", "ballistic", "mirajo-star", "bounce-back"]);
 
 export function packPhoto(slug: string) {
   const version = FULL_BOTTLES.has(slug) ? "bottle" : "catalogue";
@@ -27,6 +27,17 @@ export function packPhoto(slug: string) {
 }
 
 export const PRODUCTS: Product[] = [
+  {
+    slug: "bounce-back",
+    name: "Bounce Back",
+    technical: "Fipronil 4% + Thiamethoxam 4% SC",
+    category: "insecticide",
+    summary: "Combination insecticide. Crop, dose and packing are on the leaflet.",
+    crops: "See the leaflet",
+    targets: "See the leaflet",
+    dosage: "See the leaflet",
+    packing: "See the leaflet",
+  },
   {
     slug: "mirhaj-super-505",
     name: "Mithel Super-505",
