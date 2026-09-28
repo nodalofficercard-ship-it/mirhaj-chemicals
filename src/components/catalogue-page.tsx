@@ -525,15 +525,11 @@ export function CataloguePage() {
           <div className="mx-auto max-w-6xl px-4 py-14">
             <p className="text-xs font-semibold uppercase tracking-widest text-teal">Our gallery</p>
             <h2 className="mt-1 font-display text-3xl">Fields and packs</h2>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {[
                 { src: "/flash/cabbage-spray.jpg", title: "Protected spray in cabbage" },
                 { src: "/flash/field-team.jpg", title: "Team in the standing crop" },
                 { src: "/flash/paddy-spray.jpg", title: "Spraying the paddy" },
-                ...PRODUCTS.slice(0, 6).map((product) => ({
-                  src: `/products/${product.slug}.jpg?v=full`,
-                  title: product.name,
-                })),
               ].map((shot) => (
                 <figure key={shot.src} className="overflow-hidden rounded-2xl border border-ink/10 bg-paper">
                   <img src={shot.src} alt={shot.title} className="h-56 w-full object-contain" />
