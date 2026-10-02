@@ -36,9 +36,9 @@ const SAFETY = [
 
 const FLASH_SCENES: FlashCard[] = [
   { src: "/flash/hero-wheat.jpg?v=2", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "Wheat to harvest. We stay with the field." },
-  { src: "/flash/hero-tomato.jpg?v=2", kicker: "Tomato", title: "The tomato crop", fit: "cover", quote: "Tomato crop to harvest. A good season starts in the soil." },
+  { src: "/flash/hero-tomato.jpg?v=3", kicker: "Tomato", title: "The tomato crop", fit: "cover", quote: "Tomato crop to harvest. A good season starts in the soil." },
   { src: "/flash/hero-mustard.jpg?v=2", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "Mustard in flower. We stand with the field." },
-  { src: "/flash/hero-potato.jpg?v=2", kicker: "Potato", title: "The potato crop", fit: "cover", quote: "Potato crop at harvest. We stand with the farmer." },
+  { src: "/flash/hero-potato.jpg?v=3", kicker: "Potato", title: "The potato crop", fit: "cover", quote: "Potato crop at harvest. We stand with the farmer." },
 ];
 
 type FlashCard = {
@@ -294,14 +294,14 @@ export function CataloguePage() {
             {[
               {
                 href: "#range",
-                src: "/flash/hero-potato.jpg?v=2",
+                src: "/flash/hero-potato.jpg?v=3",
                 kicker: "The range",
                 title: "Packs for the crop in front of you",
                 action: "See the products",
               },
               {
                 href: "#about",
-                src: "/flash/hero-tomato.jpg?v=1",
+                src: "/flash/hero-tomato.jpg?v=3",
                 kicker: "The company",
                 title: "Made for dealers and farmers",
                 action: "About us",
@@ -492,7 +492,7 @@ export function CataloguePage() {
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {[
                 { src: "/flash/hero-wheat.jpg?v=2", title: "Wheat before harvest" },
-                { src: "/flash/hero-potato.jpg?v=2", title: "Potato at harvest" },
+                { src: "/flash/hero-potato.jpg?v=3", title: "Potato crop in the field" },
               ].map((shot) => (
                 <figure key={shot.title} className="overflow-hidden rounded-2xl border border-ink/10 bg-paper">
                   <img src={shot.src} alt={shot.title} className="h-56 w-full object-contain" />
