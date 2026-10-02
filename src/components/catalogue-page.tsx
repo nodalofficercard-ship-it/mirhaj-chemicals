@@ -35,11 +35,11 @@ const SAFETY = [
 ];
 
 const FLASH_SCENES: FlashCard[] = [
-  { src: "/flash/cabbage-spray.jpg?v=crop", kicker: "Farmer", title: "In the standing crop", fit: "cover" },
-  { src: "/flash/field-team.jpg?v=crop", kicker: "Farmer", title: "The harvest", fit: "cover" },
-  { src: "/flash/mustard.jpg?v=flower", kicker: "Mustard", title: "The mustard crop", fit: "cover" },
-  { src: "/flash/paddy.jpg?v=paddy", kicker: "Paddy", title: "The paddy crop", fit: "cover" },
-  { src: "/flash/wheat-field.jpg?v=wheat", kicker: "Wheat", title: "The wheat crop", fit: "cover" },
+  { src: "/flash/cabbage-spray.jpg?v=crop", kicker: "Farmer", title: "In the standing crop", fit: "cover", quote: "Mirhaj Chemicals stands with the farmer through every season, from the first spray in the standing crop to the last sack of the harvest." },
+  { src: "/flash/field-team.jpg?v=crop", kicker: "Farmer", title: "The harvest", fit: "cover", quote: "A good season begins in the soil. Mirhaj Chemicals keeps the field protected so the crop can reach the market, and the farmer can keep his year." },
+  { src: "/flash/mustard.jpg?v=flower", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "When the mustard comes into flower, Mirhaj Chemicals has already stood with that field from the first leaf to the yellow bloom." },
+  { src: "/flash/paddy.jpg?v=paddy2", kicker: "Paddy", title: "The paddy crop", fit: "cover", quote: "In the standing paddy, Mirhaj Chemicals keeps the crop safe from the nursery to the full grain." },
+  { src: "/flash/wheat-field.jpg?v=wheat", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "From the green wheat to the ripe ear, Mirhaj Chemicals stays with the field until the harvest is home." },
 ];
 
 type FlashCard = {
@@ -47,6 +47,7 @@ type FlashCard = {
   kicker: string;
   title: string;
   fit: "cover" | "contain";
+  quote: string;
 };
 
 const NANO = [
@@ -190,7 +191,7 @@ function FlashStage() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const quote = HERO_QUOTES[index % HERO_QUOTES.length];
+  const quote = FLASH_SCENES[index]?.quote ?? "";
 
   return (
     <div className="relative h-[88vh] min-h-[620px] overflow-hidden bg-[#1a120c]">
