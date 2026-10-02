@@ -565,14 +565,19 @@ export function CataloguePage() {
               <p className="mt-3 text-sm text-ink/60">Email</p>
               <p className="text-sm font-medium break-all">{EMAIL}</p>
             </a>
-            <div className="rounded-2xl border border-ink/10 bg-card p-5">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=E-5%2F130+Amrapali+Yojna%2C+Awas+Vikas+Hardoi+Road%2C+Amethia+Salempur%2C+Lucknow+226101"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-2xl border border-ink/10 bg-card p-5 hover:border-teal/50"
+            >
               <MapPin className="size-5 text-teal" aria-hidden />
               <p className="mt-3 text-sm text-ink/60">Works</p>
               <p className="text-sm leading-relaxed">
                 E-5/130 Amrapali Yojna, Awas Vikas Hardoi Road, Amethia Salempur, Lucknow 226101,
                 Uttar Pradesh
               </p>
-            </div>
+            </a>
           </div>
           <p className="mt-8 max-w-3xl text-xs leading-relaxed text-ink/60">
             Pack photographs and directions are taken from the Mirhaj Chemicals catalogue, April
