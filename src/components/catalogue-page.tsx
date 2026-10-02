@@ -35,11 +35,11 @@ const SAFETY = [
 ];
 
 const FLASH_SCENES: FlashCard[] = [
-  { src: "/flash/hero-cabbage.jpg?v=1", kicker: "Farmer", title: "In the standing crop", fit: "cover", quote: "Mirhaj Chemicals stands with the farmer through every season, from the first spray in the standing crop to the last sack of the harvest." },
-  { src: "/flash/hero-tomato.jpg?v=1", kicker: "Farmer", title: "The harvest", fit: "cover", quote: "A good season begins in the soil. Mirhaj Chemicals keeps the field protected so the crop can reach the market, and the farmer can keep his year." },
-  { src: "/flash/hero-mustard.jpg?v=1", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "When the mustard comes into flower, Mirhaj Chemicals has already stood with that field from the first leaf to the yellow bloom." },
-  { src: "/flash/hero-paddy.jpg?v=1", kicker: "Paddy", title: "The paddy crop", fit: "cover", quote: "In the standing paddy, Mirhaj Chemicals keeps the crop safe from the nursery to the full grain." },
-  { src: "/flash/hero-wheat.jpg?v=1", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "From the green wheat to the ripe ear, Mirhaj Chemicals stays with the field until the harvest is home." },
+  { src: "/flash/hero-cabbage.jpg?v=1", kicker: "Farmer", title: "In the standing crop", fit: "cover", quote: "Mirhaj Chemicals. With the farmer, every season." },
+  { src: "/flash/hero-tomato.jpg?v=1", kicker: "Farmer", title: "The harvest", fit: "cover", quote: "A good season starts in the soil." },
+  { src: "/flash/hero-mustard.jpg?v=1", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "Mustard in flower. Mirhaj Chemicals stands with the field." },
+  { src: "/flash/hero-paddy.jpg?v=1", kicker: "Paddy", title: "The paddy crop", fit: "cover", quote: "Standing paddy, kept safe by Mirhaj Chemicals." },
+  { src: "/flash/hero-wheat.jpg?v=1", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "Wheat to harvest. Mirhaj Chemicals stays with the field." },
 ];
 
 type FlashCard = {
