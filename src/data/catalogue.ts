@@ -103,7 +103,7 @@ const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil", "merib
 
 export function packPhoto(slug: string) {
   const version = slug === "jaishu" ? "arocon" : FULL_BOTTLES.has(slug) ? "bottle" : "catalogue";
-  const fresh = slug === "arena" || slug === "mirhaj-mida" ? "full" : version;
+  const fresh = slug === "arena" || slug === "mirhaj-mida" || slug === "deccan" ? "full" : version;
   return `/products/${slug}.jpg?v=${fresh}`;
 }
 
