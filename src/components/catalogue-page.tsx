@@ -163,8 +163,8 @@ function SiteHeader() {
 }
 
 const HERO_QUOTES = [
-  "The field feeds the family.",
-  "A good season begins in the soil.",
+  "Mirhaj Chemicals stands with the farmer from the first spray to the last harvest.",
+  "A good season begins in the soil, and Mirhaj Chemicals keeps that crop protected.",
 ];
 
 function FlashStage() {
@@ -189,7 +189,7 @@ function FlashStage() {
         />
       ))}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/55 to-transparent" />
-      <p className="absolute inset-x-0 bottom-10 z-10 px-6 text-center text-2xl font-medium tracking-tight text-white sm:text-4xl">
+      <p className="absolute inset-x-0 bottom-10 z-10 mx-auto max-w-4xl px-6 text-center text-xl font-medium leading-snug tracking-tight text-white sm:text-3xl">
         {quote}
       </p>
     </div>
