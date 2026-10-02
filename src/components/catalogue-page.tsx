@@ -162,6 +162,11 @@ function SiteHeader() {
   );
 }
 
+const HERO_QUOTES = [
+  "Guard the standing crop.",
+  "The harvest starts with the right spray.",
+];
+
 function FlashStage() {
   const [index, setIndex] = useState(0);
   useEffect(() => {
@@ -170,6 +175,8 @@ function FlashStage() {
     }, 5600);
     return () => window.clearInterval(timer);
   }, []);
+
+  const quote = HERO_QUOTES[index % HERO_QUOTES.length];
 
   return (
     <div className="relative h-[88vh] min-h-[620px] overflow-hidden bg-[#1a120c]">
@@ -181,6 +188,10 @@ function FlashStage() {
           className={`flash-shot absolute inset-0 h-full w-full object-cover ${i === index ? "is-on" : ""}`}
         />
       ))}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/55 to-transparent" />
+      <p className="absolute inset-x-0 bottom-10 z-10 px-6 text-center text-2xl font-medium tracking-tight text-white sm:text-4xl">
+        {quote}
+      </p>
     </div>
   );
 }
