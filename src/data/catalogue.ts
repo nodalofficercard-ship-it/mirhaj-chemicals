@@ -102,8 +102,9 @@ export function productsInIndex<T extends { slug: string }>(products: T[]) {
 const FULL_BOTTLES = new Set(["miraxima-plus", "merofex-super", "sejjil", "meribion", "hygeia-potash-ultra", "mirogent-ultra", "mirogent", "mizura", "ballistic", "mirajo-star", "bounce-back", "jaishu", "kerogen", "faster", "futerra", "miromycin", "iconic", "ekaiv", "haven", "pendency", "mirostar-top", "facilitator", "founder", "mirajo-star-gold", "gargee", "panther", "croma", "mitaaco", "fighter", "cluster-75", "comet", "mentaf-plus", "jaishu-gold", "cleaner-38", "mifit-plus", "met-on", "stranger", "speeder", "mira-71"]);
 
 export function packPhoto(slug: string) {
-  const version = FULL_BOTTLES.has(slug) ? "bottle" : "catalogue";
-  return `/products/${slug}.jpg?v=${version}`;
+  const version = slug === "jaishu" ? "arocon" : FULL_BOTTLES.has(slug) ? "bottle" : "catalogue";
+  const fresh = slug === "arena" ? "full" : version;
+  return `/products/${slug}.jpg?v=${fresh}`;
 }
 
 export const PRODUCTS: Product[] = [
