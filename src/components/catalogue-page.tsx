@@ -35,9 +35,9 @@ const SAFETY = [
 ];
 
 const FLASH_SCENES: FlashCard[] = [
-  { src: "/flash/cabbage-spray.jpg", kicker: "Farmer", title: "Protected spray", fit: "contain" },
-  { src: "/flash/field-team.jpg", kicker: "Farmer", title: "In the standing crop", fit: "contain" },
-  { src: "/flash/paddy-spray.jpg", kicker: "Farmer", title: "Spraying the paddy", fit: "contain" },
+  { src: "/flash/cabbage-spray.jpg?v=hires", kicker: "Farmer", title: "Protected spray", fit: "contain" },
+  { src: "/flash/field-team.jpg?v=hires", kicker: "Farmer", title: "In the standing crop", fit: "contain" },
+  { src: "/flash/paddy-spray.jpg?v=hires", kicker: "Farmer", title: "Spraying the paddy", fit: "contain" },
 ];
 
 type FlashCard = {
@@ -286,21 +286,21 @@ export function CataloguePage() {
             {[
               {
                 href: "#range",
-                src: "/flash/cabbage-spray.jpg",
+                src: "/flash/cabbage-spray.jpg?v=hires",
                 kicker: "The range",
                 title: "Packs for the crop in front of you",
                 action: "See the products",
               },
               {
                 href: "#about",
-                src: "/flash/field-team.jpg",
+                src: "/flash/field-team.jpg?v=hires",
                 kicker: "The company",
                 title: "Made for dealers and farmers",
                 action: "About us",
               },
               {
                 href: "#enquiry",
-                src: "/flash/paddy-spray.jpg",
+                src: "/flash/paddy-spray.jpg?v=hires",
                 kicker: "The field",
                 title: "Ask before the season starts",
                 action: "Enquiry now",
@@ -483,9 +483,9 @@ export function CataloguePage() {
             <h2 className="mt-1 font-display text-3xl">Fields and packs</h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {[
-                { src: "/flash/cabbage-spray.jpg", title: "Protected spray in cabbage" },
-                { src: "/flash/field-team.jpg", title: "Team in the standing crop" },
-                { src: "/flash/paddy-spray.jpg", title: "Spraying the paddy" },
+                { src: "/flash/cabbage-spray.jpg?v=hires", title: "Protected spray in cabbage" },
+                { src: "/flash/field-team.jpg?v=hires", title: "Team in the standing crop" },
+                { src: "/flash/paddy-spray.jpg?v=hires", title: "Spraying the paddy" },
               ].map((shot) => (
                 <figure key={shot.src} className="overflow-hidden rounded-2xl border border-ink/10 bg-paper">
                   <img src={shot.src} alt={shot.title} className="h-56 w-full object-contain" />
