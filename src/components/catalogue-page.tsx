@@ -97,6 +97,7 @@ function SocialIcon({ name }: { name: string }) {
 }
 
 function SiteHeader() {
+  const [aboutOpen, setAboutOpen] = useState(false);
   const social = [
     { name: "WhatsApp", href: WHATSAPP, color: "#25D366" },
     { name: "Facebook", href: FACEBOOK, color: "#1877F2" },
@@ -144,23 +145,38 @@ function SiteHeader() {
       </div>
       <nav aria-label="Site" className="bg-transparent">
         <div className="mx-auto flex max-w-6xl items-center gap-2 overflow-x-auto px-3 py-2">
-          {TABS.map((tab) => (
-            <a
-              key={tab.href}
-              href={tab.href}
-              className="shrink-0 px-2 py-1 text-sm font-black tracking-tight text-black hover:text-[#0c4f86]"
-            >
-              {tab.label}
-            </a>
-          ))}
+          {TABS.map((tab) =>
+            tab.href === "/#about" ? (
+              <button
+                key={tab.href}
+                type="button"
+                aria-expanded={aboutOpen}
+                className={`shrink-0 px-2 py-1 text-sm font-black tracking-tight ${aboutOpen ? "text-[#0c4f86]" : "text-black"} hover:text-[#0c4f86]`}
+                onClick={() => setAboutOpen((open) => !open)}
+              >
+                {tab.label}
+              </button>
+            ) : (
+              <a
+                key={tab.href}
+                href={tab.href}
+                onClick={() => setAboutOpen(false)}
+                className="shrink-0 px-2 py-1 text-sm font-black tracking-tight text-black hover:text-[#0c4f86]"
+              >
+                {tab.label}
+              </a>
+            ),
+          )}
         </div>
-        <div className="border-t border-[#0c4f86]/15 bg-[#f4f7f8]">
-          <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-1.5">
-            <span className="shrink-0 px-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0c4f86]">About us</span>
-            <a href="/#about" className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-black hover:text-[#0c4f86]">Company</a>
-            <a href="/founder" className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-black hover:bg-white hover:text-[#0c4f86]">Founder and MD</a>
+        {aboutOpen ? (
+          <div className="border-t border-[#0c4f86]/15 bg-[#f7f4ee]">
+            <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-2">
+              <a href="/#vision" onClick={() => setAboutOpen(false)} className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-black hover:text-[#0c4f86]">Vision</a>
+              <a href="/#mission" onClick={() => setAboutOpen(false)} className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-black hover:text-[#0c4f86]">Mission</a>
+              <a href="/founder" className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-[#0c4f86] hover:underline">MD Message</a>
+            </div>
           </div>
-        </div>
+        ) : null}
       </nav>
       <div className="flex items-center justify-center gap-2 border-b border-[#0c4f86]/30 bg-white px-3 py-2 sm:hidden">
         {social.map((item) => (
@@ -441,11 +457,11 @@ export function CataloguePage() {
               </p>
             </div>
             <dl className="grid gap-4">
-              <AboutFact title="Mission">
+              <AboutFact id="mission" title="Mission">
                 Supply products that help farmers increase yields and crop quality, for food, feed,
                 fibre and energy.
               </AboutFact>
-              <AboutFact title="Vision">
+              <AboutFact id="vision" title="Vision">
                 Results for customers across a broad crop-protection range. We believe in value for
                 money.
               </AboutFact>
@@ -690,9 +706,9 @@ export function CataloguePage() {
   );
 }
 
-function AboutFact({ title, children }: { title: string; children: string }) {
+function AboutFact({ id, title, children }: { id?: string; title: string; children: string }) {
   return (
-    <div className="rounded-2xl border border-ink/10 bg-card p-5">
+    <div id={id} className="scroll-mt-28 rounded-2xl border border-ink/10 bg-card p-5">
       <dt className="text-xs font-semibold uppercase tracking-widest text-gold">{title}</dt>
       <dd className="mt-2 text-sm leading-relaxed text-ink/80">{children}</dd>
     </div>
