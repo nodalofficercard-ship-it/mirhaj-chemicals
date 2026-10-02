@@ -162,11 +162,6 @@ function SiteHeader() {
   );
 }
 
-const HERO_LINES = [
-  { kicker: "For the standing crop", title: "Packs for the field in front of you" },
-  { kicker: "The harvest", title: "Made for dealers and farmers" },
-];
-
 function FlashStage() {
   const [index, setIndex] = useState(0);
   useEffect(() => {
@@ -176,40 +171,16 @@ function FlashStage() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const line = HERO_LINES[index] ?? HERO_LINES[0];
-
   return (
     <div className="relative h-[88vh] min-h-[620px] overflow-hidden bg-[#1a120c]">
       {FLASH_SCENES.map((card, i) => (
         <img
           key={card.src}
           src={card.src}
-          alt={i === index ? line.title : ""}
+          alt={card.title}
           className={`flash-shot absolute inset-0 h-full w-full object-cover ${i === index ? "is-on" : ""}`}
         />
       ))}
-      <div className="absolute inset-0 bg-black/35" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.28)_70%,rgba(0,0,0,0.55)_100%)]" />
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
-        <p className="text-sm font-medium tracking-wide text-white/90 sm:text-base">{line.kicker}</p>
-        <h1 className="mt-3 max-w-4xl text-4xl font-medium leading-[1.05] tracking-[-0.04em] sm:text-6xl md:text-7xl">
-          {line.title}
-        </h1>
-      </div>
-      <div className="absolute bottom-8 left-0 right-0 z-10 flex flex-col items-center gap-4">
-        <img src="/brand/logo.jpg" alt="mirhaj chemicals" className="h-14 w-auto rounded-xl bg-white/90 px-3 py-1.5 object-contain sm:h-16" />
-        <div className="flex gap-2">
-          {FLASH_SCENES.map((card, i) => (
-            <button
-              key={card.src}
-              type="button"
-              aria-label={HERO_LINES[i]?.title ?? card.title}
-              onClick={() => setIndex(i)}
-              className={`h-1.5 rounded-full transition-all ${i === index ? "w-8 bg-white" : "w-1.5 bg-white/60"}`}
-            />
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
