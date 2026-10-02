@@ -173,10 +173,7 @@ function SiteHeader() {
             <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-2">
               <a href="/#vision" onClick={() => setAboutOpen(false)} className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-black hover:text-[#0c4f86]">Vision</a>
               <a href="/#mission" onClick={() => setAboutOpen(false)} className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-black hover:text-[#0c4f86]">Mission</a>
-              <a href="/founder" className="inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1 text-sm font-bold text-[#0c4f86] hover:underline">
-                <MapPin className="size-4 fill-[#0c4f86]" aria-hidden />
-                MD Message
-              </a>
+              <a href="/founder" className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-[#0c4f86] hover:underline">Founder & MD Message</a>
             </div>
           </div>
         ) : null}
@@ -735,16 +732,13 @@ export function FounderPage() {
         <section className="bg-card">
           <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:grid-cols-[280px_1fr]">
             <img
-              src="/brand/founder-muneer-khan.jpg"
+              src="/brand/founder-muneer-khan.jpg?v=2"
               alt="Muneer Khan, Founder and MD of Mirhaj Chemicals"
               className="mx-auto w-full max-w-[280px] rounded-2xl border border-ink/10 bg-white object-cover"
             />
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-teal">MD Message</p>
-              <h1 className="mt-1 inline-flex items-center gap-3 font-display text-4xl">
-                Founder and MD
-                <MapPin className="size-9 fill-[#0c4f86] text-[#0c4f86]" aria-hidden />
-              </h1>
+              <p className="text-xs font-semibold uppercase tracking-widest text-teal">About us</p>
+              <h1 className="mt-1 font-display text-4xl">Founder & MD Message</h1>
               <p className="mt-4 text-ink/80">
                 Mirhaj Chemicals was started so a dealer and a farmer could trust the pack in their hand. The work is simple to say and hard to keep: the right product, made properly, explained in the field, and priced so it still makes sense at harvest.
               </p>
@@ -755,7 +749,7 @@ export function FounderPage() {
                 Thank you to the distributors, dealers and farmers who have kept us in the field. The range will keep growing. The standard will not move.
               </p>
               <p className="mt-6 font-display text-2xl leading-none">Muneer Khan</p>
-              <p className="mt-1 text-sm font-semibold uppercase tracking-widest text-teal">Founder and MD, Mirhaj Chemicals Private Limited</p>
+              <p className="mt-1 text-sm font-semibold uppercase tracking-widest text-teal">Founder & MD, Mirhaj Chemicals Private Limited</p>
             </div>
           </div>
         </section>
