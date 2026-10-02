@@ -10,16 +10,10 @@ const FACEBOOK = "https://www.facebook.com/share/18XYEzAmu8/";
 const TWITTER = "https://x.com/mirhajchemicals";
 const INSTAGRAM = "https://www.instagram.com/mirhajchemicals";
 
-const TABS: { href: string; label: string; children?: { href: string; label: string }[] }[] = [
+const TABS: { href: string; label: string }[] = [
   { href: "/#top", label: "Home" },
-  {
-    href: "/#about",
-    label: "About us",
-    children: [
-      { href: "/#about", label: "About us" },
-      { href: "/founder", label: "Founder and MD" },
-    ],
-  },
+  { href: "/#about", label: "About us" },
+  { href: "/founder", label: "Founder and MD" },
   { href: "/#range", label: "Our Products" },
   { href: "/#catalogue", label: "Our catalogue" },
   { href: "/#gallery", label: "Our gallery" },
@@ -151,34 +145,15 @@ function SiteHeader() {
       </div>
       <nav aria-label="Site" className="bg-transparent">
         <div className="mx-auto flex max-w-6xl items-center gap-2 overflow-x-auto px-3 py-2">
-          {TABS.map((tab) =>
-            tab.children ? (
-              <details key={tab.label} className="group relative shrink-0">
-                <summary className="cursor-pointer list-none px-2 py-1 text-sm font-black tracking-tight text-black hover:text-[#0c4f86] [&::-webkit-details-marker]:hidden">
-                  {tab.label}
-                </summary>
-                <div className="absolute left-0 z-40 mt-1 min-w-52 rounded-xl border border-ink/10 bg-white p-1.5 shadow-lg">
-                  {tab.children.map((child) => (
-                    <a
-                      key={child.href}
-                      href={child.href}
-                      className="block rounded-lg px-3 py-2 text-sm font-bold text-black hover:bg-paper hover:text-[#0c4f86]"
-                    >
-                      {child.label}
-                    </a>
-                  ))}
-                </div>
-              </details>
-            ) : (
-              <a
-                key={tab.href}
-                href={tab.href}
-                className="shrink-0 px-2 py-1 text-sm font-black tracking-tight text-black hover:text-[#0c4f86]"
-              >
-                {tab.label}
-              </a>
-            ),
-          )}
+          {TABS.map((tab) => (
+            <a
+              key={tab.href}
+              href={tab.href}
+              className="shrink-0 px-2 py-1 text-sm font-black tracking-tight text-black hover:text-[#0c4f86]"
+            >
+              {tab.label}
+            </a>
+          ))}
         </div>
       </nav>
       <div className="flex items-center justify-center gap-2 border-b border-[#0c4f86]/30 bg-white px-3 py-2 sm:hidden">
@@ -458,6 +433,9 @@ export function CataloguePage() {
                 The aim is straightforward: quality crop protection that helps farmers raise yield
                 and crop quality, at a price that holds up as value for money.
               </p>
+              <a href="/founder" className="mt-5 inline-flex min-h-11 items-center rounded-full bg-[#0c4f86] px-5 text-sm font-bold text-white">
+                Founder and MD
+              </a>
             </div>
             <dl className="grid gap-4">
               <AboutFact title="Mission">
