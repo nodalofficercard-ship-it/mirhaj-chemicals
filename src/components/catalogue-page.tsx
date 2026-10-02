@@ -137,7 +137,7 @@ function SiteHeader() {
             <a
               key={tab.href}
               href={tab.href}
-              className="shrink-0 rounded-full border border-white/70 bg-white/95 px-3 py-1 text-[13px] font-semibold tracking-[0.01em] text-[#14301c]"
+              className="shrink-0 rounded-full border border-white/70 bg-white/95 px-3 py-1 text-[13px] font-semibold tracking-[0.01em] text-[#14301c] hover:border-[#e7c56a] hover:bg-[#e7c56a]"
             >
               {tab.label}
             </a>
