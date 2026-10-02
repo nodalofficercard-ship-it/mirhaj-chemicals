@@ -60,7 +60,7 @@ const NANO = [
 ];
 
 function SocialIcon({ name }: { name: string }) {
-  const common = { viewBox: "0 0 24 24", className: "size-4", fill: "currentColor", "aria-hidden": true as const };
+  const common = { viewBox: "0 0 24 24", className: "size-6", fill: "currentColor", "aria-hidden": true as const };
   if (name === "WhatsApp") {
     return (
       <svg {...common}>
@@ -98,11 +98,11 @@ function SocialIcon({ name }: { name: string }) {
 
 function SiteHeader() {
   const social = [
-    { name: "WhatsApp", href: WHATSAPP },
-    { name: "Facebook", href: FACEBOOK },
-    { name: "X", href: TWITTER },
-    { name: "Instagram", href: INSTAGRAM },
-    { name: "Email", href: `mailto:${EMAIL}` },
+    { name: "WhatsApp", href: WHATSAPP, color: "#25D366" },
+    { name: "Facebook", href: FACEBOOK, color: "#1877F2" },
+    { name: "X", href: TWITTER, color: "#111111" },
+    { name: "Instagram", href: INSTAGRAM, color: "#E1306C" },
+    { name: "Email", href: `mailto:${EMAIL}`, color: "#0c4f86" },
   ];
   return (
     <header className="sticky top-0 z-30 border-b border-ink/10 bg-paper/95 backdrop-blur">
@@ -110,28 +110,30 @@ function SiteHeader() {
         <a href="#top" className="shrink-0">
           <img src="/brand/logo-complete.jpg" alt="Mirhaj Chemicals" className="h-14 w-auto object-contain object-left" />
         </a>
-        <div className="ml-auto flex items-center gap-2">
-          <div className="hidden items-center gap-0.5 rounded-full bg-[#0c4f86] px-1.5 py-1 sm:flex">
-            {social.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                aria-label={item.name}
-                title={item.name}
-                className="inline-flex size-9 items-center justify-center rounded-full text-white hover:bg-white/20"
-              >
+        <a
+          href="#enquiry"
+          className="ml-auto inline-flex min-h-12 items-center rounded-full bg-teal px-5 text-base font-bold text-paper"
+        >
+          Enquiry now
+        </a>
+      </div>
+      <div className="hidden border-b border-[#0c4f86]/30 bg-white sm:block">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-8 py-3">
+          {social.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              target={item.href.startsWith("http") ? "_blank" : undefined}
+              rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+              aria-label={item.name}
+              className="flex flex-col items-center gap-1.5 text-[13px] font-bold text-[#0c4f86]"
+            >
+              <span className="inline-flex size-12 items-center justify-center rounded-full text-white" style={{ backgroundColor: item.color }}>
                 <SocialIcon name={item.name} />
-              </a>
-            ))}
-          </div>
-          <a
-            href="#enquiry"
-            className="inline-flex min-h-12 items-center rounded-full bg-teal px-5 text-base font-bold text-paper"
-          >
-            Enquiry now
-          </a>
+              </span>
+              {item.name}
+            </a>
+          ))}
         </div>
       </div>
       <nav aria-label="Site" className="bg-transparent">
@@ -147,7 +149,7 @@ function SiteHeader() {
           ))}
         </div>
       </nav>
-      <div className="flex justify-center gap-1 bg-[#0c4f86] px-3 py-2 sm:hidden">
+      <div className="flex items-center justify-between gap-2 border-b border-[#0c4f86]/30 bg-white px-3 py-2 sm:hidden">
         {social.map((item) => (
           <a
             key={item.name}
@@ -156,6 +158,7 @@ function SiteHeader() {
             rel={item.href.startsWith("http") ? "noreferrer" : undefined}
             aria-label={item.name}
             className="inline-flex size-11 items-center justify-center rounded-full text-white"
+            style={{ backgroundColor: item.color }}
           >
             <SocialIcon name={item.name} />
           </a>
