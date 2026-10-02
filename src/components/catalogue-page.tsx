@@ -13,7 +13,6 @@ const INSTAGRAM = "https://www.instagram.com/mirhajchemicals";
 const TABS: { href: string; label: string }[] = [
   { href: "/#top", label: "Home" },
   { href: "/#about", label: "About us" },
-  { href: "/founder", label: "Founder and MD" },
   { href: "/#range", label: "Our Products" },
   { href: "/#catalogue", label: "Our catalogue" },
   { href: "/#gallery", label: "Our gallery" },
@@ -154,6 +153,13 @@ function SiteHeader() {
               {tab.label}
             </a>
           ))}
+        </div>
+        <div className="border-t border-[#0c4f86]/15 bg-[#f4f7f8]">
+          <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-1.5">
+            <span className="shrink-0 px-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0c4f86]">About us</span>
+            <a href="/#about" className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-black hover:text-[#0c4f86]">Company</a>
+            <a href="/founder" className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-black hover:bg-white hover:text-[#0c4f86]">Founder and MD</a>
+          </div>
         </div>
       </nav>
       <div className="flex items-center justify-center gap-2 border-b border-[#0c4f86]/30 bg-white px-3 py-2 sm:hidden">
@@ -433,9 +439,6 @@ export function CataloguePage() {
                 The aim is straightforward: quality crop protection that helps farmers raise yield
                 and crop quality, at a price that holds up as value for money.
               </p>
-              <a href="/founder" className="mt-5 inline-flex min-h-11 items-center rounded-full bg-[#0c4f86] px-5 text-sm font-bold text-white">
-                Founder and MD
-              </a>
             </div>
             <dl className="grid gap-4">
               <AboutFact title="Mission">
