@@ -110,31 +110,37 @@ function SiteHeader() {
         <a href="#top" className="shrink-0">
           <img src="/brand/logo-complete.jpg" alt="Mirhaj Chemicals" className="h-14 w-auto object-contain object-left" />
         </a>
+        <div className="ml-auto hidden flex-col items-end gap-2 sm:flex">
+          <a
+            href="#enquiry"
+            className="inline-flex min-h-12 items-center rounded-full bg-teal px-5 text-base font-bold text-paper"
+          >
+            Enquiry now
+          </a>
+          <div className="flex items-start justify-end gap-3">
+            {social.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                aria-label={item.name}
+                className="flex flex-col items-center gap-1 text-[11px] font-bold text-[#0c4f86]"
+              >
+                <span className="inline-flex size-10 items-center justify-center rounded-full text-white" style={{ backgroundColor: item.color }}>
+                  <SocialIcon name={item.name} />
+                </span>
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
         <a
           href="#enquiry"
-          className="ml-auto inline-flex min-h-12 items-center rounded-full bg-teal px-5 text-base font-bold text-paper"
+          className="ml-auto inline-flex min-h-12 items-center rounded-full bg-teal px-5 text-base font-bold text-paper sm:hidden"
         >
           Enquiry now
         </a>
-      </div>
-      <div className="hidden border-b border-[#0c4f86]/30 bg-white sm:block">
-        <div className="mx-auto flex max-w-6xl items-center justify-center gap-3 px-4 py-2">
-          {social.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              target={item.href.startsWith("http") ? "_blank" : undefined}
-              rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-              aria-label={item.name}
-              className="flex flex-col items-center gap-1.5 text-[13px] font-bold text-[#0c4f86]"
-            >
-              <span className="inline-flex size-12 items-center justify-center rounded-full text-white" style={{ backgroundColor: item.color }}>
-                <SocialIcon name={item.name} />
-              </span>
-              {item.name}
-            </a>
-          ))}
-        </div>
       </div>
       <nav aria-label="Site" className="bg-transparent">
         <div className="mx-auto flex max-w-6xl items-center gap-2 overflow-x-auto px-3 py-2">
