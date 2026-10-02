@@ -39,6 +39,7 @@ const FLASH_SCENES: FlashCard[] = [
   { src: "/flash/field-team.jpg?v=crop", kicker: "Farmer", title: "The harvest", fit: "cover" },
   { src: "/flash/mustard.jpg?v=flower", kicker: "Mustard", title: "The mustard crop", fit: "cover" },
   { src: "/flash/paddy.jpg?v=paddy", kicker: "Paddy", title: "The paddy crop", fit: "cover" },
+  { src: "/flash/wheat-field.jpg?v=wheat", kicker: "Wheat", title: "The wheat crop", fit: "cover" },
 ];
 
 type FlashCard = {
@@ -169,6 +170,7 @@ const HERO_QUOTES = [
   "A good season begins in the soil. Mirhaj Chemicals keeps the field protected so the crop can reach the market, and the farmer can keep his year.",
   "When the mustard comes into flower, Mirhaj Chemicals has already stood with that field from the first leaf to the yellow bloom.",
   "In the standing paddy, Mirhaj Chemicals keeps the crop safe from the nursery to the full grain.",
+  "From the green wheat to the ripe ear, Mirhaj Chemicals stays with the field until the harvest is home.",
 ];
 
 function FlashStage() {
