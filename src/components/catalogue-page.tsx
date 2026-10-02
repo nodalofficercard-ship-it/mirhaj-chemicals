@@ -57,7 +57,7 @@ const NANO = [
 ];
 
 function SocialIcon({ name }: { name: string }) {
-  const common = { viewBox: "0 0 24 24", className: "size-4", fill: "currentColor", "aria-hidden": true as const };
+  const common = { viewBox: "0 0 24 24", className: "size-8", fill: "currentColor", "aria-hidden": true as const };
   if (name === "WhatsApp") {
     return (
       <svg {...common}>
@@ -107,28 +107,28 @@ function SiteHeader() {
         <a href="#top" className="shrink-0">
           <img src="/brand/logo-complete.jpg" alt="Mirhaj Chemicals" className="h-14 w-auto object-contain object-left" />
         </a>
-        <div className="ml-auto flex items-center gap-2">
-          <div className="hidden items-center gap-0.5 rounded-full bg-[#0c4f86] px-1.5 py-1 sm:flex">
-            {social.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                aria-label={item.name}
-                title={item.name}
-                className="inline-flex size-9 items-center justify-center rounded-full text-white hover:bg-white/20"
-              >
-                <SocialIcon name={item.name} />
-              </a>
-            ))}
-          </div>
-          <a
-            href="#enquiry"
-            className="inline-flex min-h-12 items-center rounded-full bg-teal px-5 text-base font-bold text-paper"
-          >
-            Enquiry now
-          </a>
+        <a
+          href="#enquiry"
+          className="ml-auto inline-flex min-h-12 items-center rounded-full bg-teal px-5 text-base font-bold text-paper"
+        >
+          Enquiry now
+        </a>
+      </div>
+      <div className="hidden bg-[#0c4f86] sm:block">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-8 py-3">
+          {social.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              target={item.href.startsWith("http") ? "_blank" : undefined}
+              rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+              aria-label={item.name}
+              title={item.name}
+              className="inline-flex size-14 items-center justify-center rounded-full text-white"
+            >
+              <SocialIcon name={item.name} />
+            </a>
+          ))}
         </div>
       </div>
       <nav aria-label="Site" className="border-y border-white/10 bg-[#146b28] shadow-[0_8px_24px_rgba(12,40,18,0.18)]">
@@ -144,7 +144,7 @@ function SiteHeader() {
           ))}
         </div>
       </nav>
-      <div className="flex justify-center gap-1 bg-[#0c4f86] px-3 py-2 sm:hidden">
+      <div className="flex items-center justify-between gap-4 bg-[#0c4f86] px-6 py-3 sm:hidden">
         {social.map((item) => (
           <a
             key={item.name}
@@ -152,7 +152,7 @@ function SiteHeader() {
             target={item.href.startsWith("http") ? "_blank" : undefined}
             rel={item.href.startsWith("http") ? "noreferrer" : undefined}
             aria-label={item.name}
-            className="inline-flex size-11 items-center justify-center rounded-full text-white"
+            className="inline-flex size-14 items-center justify-center rounded-full text-white"
           >
             <SocialIcon name={item.name} />
           </a>
