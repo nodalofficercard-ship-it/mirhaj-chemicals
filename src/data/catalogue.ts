@@ -450,7 +450,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "jaishu",
-    name: "Jaishu",
+    name: "Arocon",
     technical: "Azoxystrobin 8.3% + Mancozeb 66.7% WG",
     category: "fungicide",
     summary: "Systemic and contact fungicide for vegetable and fruit diseases.",
@@ -538,7 +538,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "mirajo-star-gold",
-    name: "Mirazo Star Gold",
+    name: "Mirajo Star Gold",
     technical: "Paclobutrazol 40% SC",
     category: "pgr",
     summary: "Gibberellin antagonist for shorter internodes, stronger roots and fruit set.",
