@@ -40,24 +40,6 @@ const FLASH_SCENES: FlashCard[] = [
   { src: "/flash/paddy-spray.jpg", kicker: "Farmer", title: "Spraying the paddy", fit: "contain" },
 ];
 
-const FLASH_PACKS: FlashCard[] = [
-  ["panther", "Panther"],
-  ["supreme", "Supreme"],
-  ["pound-up", "Pound Up"],
-  ["mira-71", "Mira-71"],
-  ["pookie-zyme", "Pookie Zyme"],
-  ["ballistic", "Lumora Glow"],
-  ["cluster-75", "Cluster-75"],
-  ["futerra", "Futerra"],
-  ["miracle", "Miracle"],
-  ["jaishu", "Jaishu"],
-].map(([slug, title]) => ({
-  src: packPhoto(slug),
-  kicker: "Pack",
-  title,
-  fit: "contain" as const,
-}));
-
 type FlashCard = {
   src: string;
   kicker: string;
@@ -65,43 +47,6 @@ type FlashCard = {
   fit: "cover" | "contain";
 };
 
-function RollingRow({
-  cards,
-  reverse,
-  full,
-}: {
-  cards: FlashCard[];
-  reverse?: boolean;
-  full?: boolean;
-}) {
-  const loop = [...cards, ...cards];
-  return (
-    <div className="overflow-hidden">
-      <div className={`${reverse ? "roll-right" : "roll-left"} flex w-max gap-4`}>
-        {loop.map((card, index) => {
-          const copy = index >= cards.length;
-          return (
-            <figure key={`${card.src}-${index}`} className={full ? "w-[min(88vw,40rem)] shrink-0" : "w-40 shrink-0"} aria-hidden={copy}>
-              <img
-                src={card.src}
-                alt={copy ? "" : card.title}
-                className={
-                  full
-                    ? "h-64 w-full rounded-2xl bg-white object-contain sm:h-80"
-                    : `h-28 w-full rounded-2xl bg-paper ${card.fit === "cover" ? "object-cover object-center" : "object-contain p-2"}`
-                }
-              />
-              <figcaption className="mt-2 px-1">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gold">{card.kicker}</span>
-                <span className="mt-0.5 block text-sm text-paper">{card.title}</span>
-              </figcaption>
-            </figure>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
 const NANO = [
   "19:19:19",
   "13:00:45",
@@ -332,11 +277,8 @@ export function CataloguePage() {
       <SiteHeader />
 
       <main id="top">
-        <section className="bg-[#04241c] text-white">
+        <section className="bg-[#1a120c] text-white">
           <FlashStage />
-          <div className="roll-mask pb-8 pt-6" aria-label="Product packs rolling">
-            <RollingRow cards={FLASH_PACKS} reverse />
-          </div>
         </section>
 
         <section className="bg-paper" aria-label="What we do">
