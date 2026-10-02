@@ -5,56 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mirhaj Chemicals</title>
   <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; height: 100%; font-family: system-ui, sans-serif; background: #1a120c; color: #fff; }
+    html, body { margin: 0; height: 100%; background: #1a120c; }
     .hero { position: relative; min-height: 100vh; overflow: hidden; }
-    .hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s; }
-    .hero img.bg.on { opacity: 1; }
-    .shade { position: absolute; inset: 0; background: rgba(0,0,0,.35); }
-    .copy { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; }
-    .kicker { margin: 0; font-size: 16px; }
-    h1 { margin: 12px 0 0; max-width: 16ch; font-size: clamp(36px, 6vw, 72px); font-weight: 500; letter-spacing: -0.04em; line-height: 1.05; }
-    .mark { position: absolute; z-index: 2; left: 0; right: 0; bottom: 28px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
-    .mark img { height: 64px; background: rgba(255,255,255,.92); border-radius: 12px; padding: 6px 10px; }
-    .dots { display: flex; gap: 8px; }
-    .dots button { width: 8px; height: 6px; border: 0; border-radius: 99px; background: rgba(255,255,255,.6); padding: 0; }
-    .dots button.on { width: 32px; background: #fff; }
+    .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s; }
+    .hero img.on { opacity: 1; }
   </style>
 </head>
 <body>
   <section class="hero">
-    <img class="bg on" src="https://cdn.jsdelivr.net/gh/nodalofficercard-ship-it/mirhaj-chemicals@gh-pages/lettuce.jpg" alt="Lettuce field" />
-    <img class="bg" src="https://cdn.jsdelivr.net/gh/nodalofficercard-ship-it/mirhaj-chemicals@gh-pages/tomatoes.jpg" alt="Tomatoes" />
-    <div class="shade"></div>
-    <div class="copy">
-      <p class="kicker" id="kicker">For the standing crop</p>
-      <h1 id="title">Packs for the field in front of you</h1>
-    </div>
-    <div class="mark">
-      <img src="https://cdn.jsdelivr.net/gh/nodalofficercard-ship-it/mirhaj-chemicals@gh-pages/logo.jpg" alt="mirhaj chemicals" />
-      <div class="dots">
-        <button class="on" type="button" aria-label="Lettuce field"></button>
-        <button type="button" aria-label="Tomatoes"></button>
-      </div>
-    </div>
+    <img class="on" src="https://cdn.jsdelivr.net/gh/nodalofficercard-ship-it/mirhaj-chemicals@gh-pages/lettuce.jpg" alt="Lettuce field" />
+    <img src="https://cdn.jsdelivr.net/gh/nodalofficercard-ship-it/mirhaj-chemicals@gh-pages/tomatoes.jpg" alt="Tomatoes" />
   </section>
   <script>
-    const lines = [
-      ["For the standing crop", "Packs for the field in front of you"],
-      ["The harvest", "Made for dealers and farmers"]
-    ];
-    const photos = [...document.querySelectorAll(".bg")];
-    const dots = [...document.querySelectorAll(".dots button")];
+    const photos = [...document.querySelectorAll(".hero img")];
     let i = 0;
-    function show(n) {
-      i = n;
-      photos.forEach((p, idx) => p.classList.toggle("on", idx === n));
-      dots.forEach((d, idx) => d.classList.toggle("on", idx === n));
-      document.getElementById("kicker").textContent = lines[n][0];
-      document.getElementById("title").textContent = lines[n][1];
-    }
-    dots.forEach((d, idx) => d.addEventListener("click", () => show(idx)));
-    setInterval(() => show((i + 1) % 2), 5600);
+    setInterval(() => {
+      i = (i + 1) % photos.length;
+      photos.forEach((p, idx) => p.classList.toggle("on", idx === i));
+    }, 5600);
   </script>
 </body>
 </html>
