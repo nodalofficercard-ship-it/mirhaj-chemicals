@@ -602,6 +602,18 @@ export function CataloguePage() {
       <footer className="border-t border-ink/10 px-4 py-6 text-center text-xs text-ink/60">
         Mirhaj Chemicals Private Limited · MCPL · Lucknow · {EMAIL}
       </footer>
+      <a
+        href={`${WHATSAPP}?text=${encodeURIComponent("Hello Mirhaj Chemicals, I want to enquire about your products.")}`}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-bold text-white shadow-lg"
+      >
+        <svg viewBox="0 0 24 24" className="size-6" fill="currentColor" aria-hidden>
+          <path d="M20 11.5A8.5 8.5 0 0 1 7.1 18.6L4 20l1.5-3A8.5 8.5 0 1 1 20 11.5Zm-8.5 7a7 7 0 0 0 3.5-.9l.3-.2 2.1.6-.6-2 .2-.3A7 7 0 1 0 11.5 18.5Zm3.8-5.2c-.2-.1-1.2-.6-1.4-.7s-.3-.1-.5.1-.5.7-.7.8-.2.2-.4.1a5.7 5.7 0 0 1-1.7-1 6.3 6.3 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.1-.2a.4.4 0 0 0 0-.4c0-.1-.5-1.2-.7-1.6s-.3-.4-.5-.4h-.4a.8.8 0 0 0-.6.3 2.5 2.5 0 0 0-.8 1.8 4.3 4.3 0 0 0 .9 2.3 9.8 9.8 0 0 0 3.8 3.3 4.4 4.4 0 0 0 2.5.5 2.1 2.1 0 0 0 1.4-1 1.7 1.7 0 0 0 .1-1c-.1-.1-.2-.1-.4-.2Z" />
+        </svg>
+        WhatsApp
+      </a>
 
       {selected ? (
         <div
