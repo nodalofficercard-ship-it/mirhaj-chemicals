@@ -13,6 +13,7 @@ const INSTAGRAM = "https://www.instagram.com/mirhajchemicals";
 const TABS = [
   { href: "#top", label: "Home" },
   { href: "#about", label: "About us" },
+  { href: "#founder", label: "Founder" },
   { href: "#range", label: "Our Products" },
   { href: "#catalogue", label: "Our catalogue" },
   { href: "#gallery", label: "Our gallery" },
@@ -444,6 +445,31 @@ export function CataloguePage() {
               </AboutFact>
               <AboutFact title="Mark">MCPL · ISO 9001:2015 certified company</AboutFact>
             </dl>
+          </div>
+        </section>
+
+        <section id="founder" className="bg-card">
+          <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:grid-cols-[280px_1fr]">
+            <img
+              src="/brand/founder-muneer-khan.jpg"
+              alt="Muneer Khan, founder of Mirhaj Chemicals"
+              className="mx-auto w-full max-w-[280px] rounded-2xl border border-ink/10 bg-white object-cover"
+            />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-teal">Message from the founder</p>
+              <h2 className="mt-1 font-display text-3xl">Muneer Khan</h2>
+              <p className="mt-4 text-ink/80">
+                Mirhaj Chemicals was started so a dealer and a farmer could trust the pack in their hand. The work is simple to say and hard to keep: the right product, made properly, explained in the field, and priced so it still makes sense at harvest.
+              </p>
+              <p className="mt-3 text-ink/80">
+                We stay with wheat, mustard, potato, tomato and the vegetable crop from the first spray to the last cut. Laboratory support, production and the field team are there for that reason. If a season is difficult, we would rather be the company that answers the phone.
+              </p>
+              <p className="mt-3 text-ink/80">
+                Thank you to the distributors, dealers and farmers who have kept us in the field. The range will keep growing. The standard will not move.
+              </p>
+              <p className="mt-6 font-display text-2xl leading-none">Muneer Khan</p>
+              <p className="mt-1 text-sm font-semibold uppercase tracking-widest text-teal">Founder, Mirhaj Chemicals Private Limited</p>
+            </div>
           </div>
         </section>
 
