@@ -36,7 +36,6 @@ const SAFETY = [
 
 const FLASH_SCENES: FlashCard[] = [
   { src: "/flash/hero-wheat.jpg?v=2", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "Wheat to harvest. Mirhaj Chemicals stays with the field." },
-  { src: "/flash/hero-paddy.jpg?v=2", kicker: "Paddy", title: "The paddy crop", fit: "cover", quote: "Standing paddy, kept safe by Mirhaj Chemicals." },
   { src: "/flash/hero-tomato.jpg?v=2", kicker: "Tomato", title: "The tomato crop", fit: "cover", quote: "A good season starts in the soil." },
   { src: "/flash/hero-mustard.jpg?v=2", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "Mustard in flower. Mirhaj Chemicals stands with the field." },
   { src: "/flash/hero-potato.jpg?v=2", kicker: "Potato", title: "The potato crop", fit: "cover", quote: "Potato at harvest. Mirhaj Chemicals stands with the farmer." },
@@ -489,7 +488,6 @@ export function CataloguePage() {
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {[
                 { src: "/flash/hero-wheat.jpg?v=2", title: "Wheat before harvest" },
-                { src: "/flash/hero-paddy.jpg?v=2", title: "Standing paddy" },
                 { src: "/flash/hero-potato.jpg?v=2", title: "Potato at harvest" },
               ].map((shot) => (
                 <figure key={shot.title} className="overflow-hidden rounded-2xl border border-ink/10 bg-paper">
