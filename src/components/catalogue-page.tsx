@@ -10,15 +10,21 @@ const FACEBOOK = "https://www.facebook.com/share/18XYEzAmu8/";
 const TWITTER = "https://x.com/mirhajchemicals";
 const INSTAGRAM = "https://www.instagram.com/mirhajchemicals";
 
-const TABS = [
-  { href: "#top", label: "Home" },
-  { href: "#about", label: "About us" },
-  { href: "#founder", label: "Founder" },
-  { href: "#range", label: "Our Products" },
-  { href: "#catalogue", label: "Our catalogue" },
-  { href: "#gallery", label: "Our gallery" },
-  { href: "#contact", label: "Contact us" },
-  { href: "#careers", label: "Careers" },
+const TABS: { href: string; label: string; children?: { href: string; label: string }[] }[] = [
+  { href: "/#top", label: "Home" },
+  {
+    href: "/#about",
+    label: "About us",
+    children: [
+      { href: "/#about", label: "About us" },
+      { href: "/founder", label: "Founder and MD" },
+    ],
+  },
+  { href: "/#range", label: "Our Products" },
+  { href: "/#catalogue", label: "Our catalogue" },
+  { href: "/#gallery", label: "Our gallery" },
+  { href: "/#contact", label: "Contact us" },
+  { href: "/#careers", label: "Careers" },
 ];
 
 const SAFETY = [
@@ -108,7 +114,7 @@ function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-ink/10 bg-paper/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5">
-        <a href="#top" className="flex shrink-0 items-center gap-3">
+        <a href="/" className="flex shrink-0 items-center gap-3">
           <img src="/brand/logo-complete.jpg" alt="Mirhaj Chemicals" className="h-14 w-auto object-contain object-left" />
           <span className="hidden text-[1.7rem] font-bold italic leading-none tracking-[0.01em] text-[#0c4f86] sm:block" style={{ fontFamily: "\"Playfair Display\", Georgia, serif" }}>Mirhaj Chemicals Private Limited</span>
         </a>
@@ -130,14 +136,14 @@ function SiteHeader() {
             ))}
           </div>
           <a
-            href="#enquiry"
+            href="/#enquiry"
             className="inline-flex min-h-12 items-center rounded-full bg-[#d31212] px-5 text-base font-bold text-white"
           >
             Enquiry now
           </a>
         </div>
         <a
-          href="#enquiry"
+          href="/#enquiry"
           className="ml-auto inline-flex min-h-12 items-center rounded-full bg-[#d31212] px-5 text-base font-bold text-white sm:hidden"
         >
           Enquiry now
@@ -145,15 +151,34 @@ function SiteHeader() {
       </div>
       <nav aria-label="Site" className="bg-transparent">
         <div className="mx-auto flex max-w-6xl items-center gap-2 overflow-x-auto px-3 py-2">
-          {TABS.map((tab) => (
-            <a
-              key={tab.href}
-              href={tab.href}
-              className="shrink-0 px-2 py-1 text-sm font-black tracking-tight text-black hover:text-[#0c4f86]"
-            >
-              {tab.label}
-            </a>
-          ))}
+          {TABS.map((tab) =>
+            tab.children ? (
+              <details key={tab.label} className="group relative shrink-0">
+                <summary className="cursor-pointer list-none px-2 py-1 text-sm font-black tracking-tight text-black hover:text-[#0c4f86] [&::-webkit-details-marker]:hidden">
+                  {tab.label}
+                </summary>
+                <div className="absolute left-0 z-40 mt-1 min-w-52 rounded-xl border border-ink/10 bg-white p-1.5 shadow-lg">
+                  {tab.children.map((child) => (
+                    <a
+                      key={child.href}
+                      href={child.href}
+                      className="block rounded-lg px-3 py-2 text-sm font-bold text-black hover:bg-paper hover:text-[#0c4f86]"
+                    >
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </details>
+            ) : (
+              <a
+                key={tab.href}
+                href={tab.href}
+                className="shrink-0 px-2 py-1 text-sm font-black tracking-tight text-black hover:text-[#0c4f86]"
+              >
+                {tab.label}
+              </a>
+            ),
+          )}
         </div>
       </nav>
       <div className="flex items-center justify-center gap-2 border-b border-[#0c4f86]/30 bg-white px-3 py-2 sm:hidden">
@@ -448,31 +473,6 @@ export function CataloguePage() {
           </div>
         </section>
 
-        <section id="founder" className="bg-card">
-          <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:grid-cols-[280px_1fr]">
-            <img
-              src="/brand/founder-muneer-khan.jpg"
-              alt="Muneer Khan, founder of Mirhaj Chemicals"
-              className="mx-auto w-full max-w-[280px] rounded-2xl border border-ink/10 bg-white object-cover"
-            />
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-teal">Message from the founder</p>
-              <h2 className="mt-1 font-display text-3xl">Muneer Khan</h2>
-              <p className="mt-4 text-ink/80">
-                Mirhaj Chemicals was started so a dealer and a farmer could trust the pack in their hand. The work is simple to say and hard to keep: the right product, made properly, explained in the field, and priced so it still makes sense at harvest.
-              </p>
-              <p className="mt-3 text-ink/80">
-                We stay with wheat, mustard, potato, tomato and the vegetable crop from the first spray to the last cut. Laboratory support, production and the field team are there for that reason. If a season is difficult, we would rather be the company that answers the phone.
-              </p>
-              <p className="mt-3 text-ink/80">
-                Thank you to the distributors, dealers and farmers who have kept us in the field. The range will keep growing. The standard will not move.
-              </p>
-              <p className="mt-6 font-display text-2xl leading-none">Muneer Khan</p>
-              <p className="mt-1 text-sm font-semibold uppercase tracking-widest text-teal">Founder, Mirhaj Chemicals Private Limited</p>
-            </div>
-          </div>
-        </section>
-
         <section id="safety" className="bg-ink text-paper">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-2">
             <div>
@@ -723,6 +723,40 @@ function Fact({ label, value }: { label: string; value: string }) {
     <div>
       <dt className="text-xs font-semibold uppercase tracking-wider text-ink/50">{label}</dt>
       <dd className="mt-0.5">{value}</dd>
+    </div>
+  );
+}
+
+export function FounderPage() {
+  return (
+    <div className="min-h-dvh">
+      <SiteHeader />
+      <main>
+        <section className="bg-card">
+          <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:grid-cols-[280px_1fr]">
+            <img
+              src="/brand/founder-muneer-khan.jpg"
+              alt="Muneer Khan, Founder and MD of Mirhaj Chemicals"
+              className="mx-auto w-full max-w-[280px] rounded-2xl border border-ink/10 bg-white object-cover"
+            />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-teal">About us</p>
+              <h1 className="mt-1 font-display text-4xl">Founder and MD</h1>
+              <p className="mt-4 text-ink/80">
+                Mirhaj Chemicals was started so a dealer and a farmer could trust the pack in their hand. The work is simple to say and hard to keep: the right product, made properly, explained in the field, and priced so it still makes sense at harvest.
+              </p>
+              <p className="mt-3 text-ink/80">
+                We stay with wheat, potato, tomato and the vegetable crop from the first spray to the last cut. Laboratory support, production and the field team are there for that reason. If a season is difficult, we would rather be the company that answers the phone.
+              </p>
+              <p className="mt-3 text-ink/80">
+                Thank you to the distributors, dealers and farmers who have kept us in the field. The range will keep growing. The standard will not move.
+              </p>
+              <p className="mt-6 font-display text-2xl leading-none">Muneer Khan</p>
+              <p className="mt-1 text-sm font-semibold uppercase tracking-widest text-teal">Founder and MD, Mirhaj Chemicals Private Limited</p>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
