@@ -189,7 +189,7 @@ function FlashStage() {
         />
       ))}
       <div className="pointer-events-none absolute inset-0 bg-black/35" />
-      <p className="absolute inset-0 z-10 flex items-center justify-center px-6 text-center text-3xl font-black leading-snug tracking-tight text-white sm:px-16 sm:text-5xl md:text-6xl" style={{ textShadow: "0 3px 18px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,1)" }}>
+      <p className="absolute inset-0 z-10 flex items-center justify-center px-6 text-center text-3xl font-black leading-snug tracking-tight text-[#e7c56a] sm:px-16 sm:text-5xl md:text-6xl" style={{ textShadow: "0 3px 18px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,1)" }}>
         <span className="max-w-5xl">{quote}</span>
       </p>
     </div>
