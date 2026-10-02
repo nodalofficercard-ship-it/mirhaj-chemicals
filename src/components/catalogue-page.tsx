@@ -110,28 +110,30 @@ function SiteHeader() {
         <a href="#top" className="shrink-0">
           <img src="/brand/logo-complete.jpg" alt="Mirhaj Chemicals" className="h-14 w-auto object-contain object-left" />
         </a>
-        <div className="hidden items-center gap-3 sm:flex">
-          {social.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              target={item.href.startsWith("http") ? "_blank" : undefined}
-              rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-              aria-label={item.name}
-              title={item.name}
-              className="inline-flex size-10 items-center justify-center rounded-full text-white"
-              style={{ backgroundColor: item.color }}
-            >
-              <SocialIcon name={item.name} />
-            </a>
-          ))}
+        <div className="ml-auto hidden items-center gap-2 sm:flex">
+          <div className="flex items-center gap-1.5">
+            {social.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                aria-label={item.name}
+                title={item.name}
+                className="inline-flex size-10 items-center justify-center rounded-full text-white"
+                style={{ backgroundColor: item.color }}
+              >
+                <SocialIcon name={item.name} />
+              </a>
+            ))}
+          </div>
+          <a
+            href="#enquiry"
+            className="inline-flex min-h-12 items-center rounded-full bg-[#d31212] px-5 text-base font-bold text-white"
+          >
+            Enquiry now
+          </a>
         </div>
-        <a
-          href="#enquiry"
-          className="ml-auto hidden min-h-12 items-center rounded-full bg-[#d31212] px-5 text-base font-bold text-white sm:inline-flex"
-        >
-          Enquiry now
-        </a>
         <a
           href="#enquiry"
           className="ml-auto inline-flex min-h-12 items-center rounded-full bg-[#d31212] px-5 text-base font-bold text-white sm:hidden"
