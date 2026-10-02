@@ -163,8 +163,8 @@ function SiteHeader() {
 }
 
 const HERO_QUOTES = [
-  "Guard the standing crop.",
-  "The harvest starts with the right spray.",
+  "The field feeds the family.",
+  "A good season begins in the soil.",
 ];
 
 function FlashStage() {
