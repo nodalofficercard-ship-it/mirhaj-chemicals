@@ -35,11 +35,11 @@ const SAFETY = [
 ];
 
 const FLASH_SCENES: FlashCard[] = [
-  { src: "/flash/cabbage-spray.jpg?v=crop", kicker: "Farmer", title: "In the standing crop", fit: "cover", quote: "Mirhaj Chemicals stands with the farmer through every season, from the first spray in the standing crop to the last sack of the harvest." },
-  { src: "/flash/field-team.jpg?v=crop", kicker: "Farmer", title: "The harvest", fit: "cover", quote: "A good season begins in the soil. Mirhaj Chemicals keeps the field protected so the crop can reach the market, and the farmer can keep his year." },
-  { src: "/flash/mustard.jpg?v=flower", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "When the mustard comes into flower, Mirhaj Chemicals has already stood with that field from the first leaf to the yellow bloom." },
-  { src: "/flash/paddy.jpg?v=paddy2", kicker: "Paddy", title: "The paddy crop", fit: "cover", quote: "In the standing paddy, Mirhaj Chemicals keeps the crop safe from the nursery to the full grain." },
-  { src: "/flash/wheat-field.jpg?v=wheat", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "From the green wheat to the ripe ear, Mirhaj Chemicals stays with the field until the harvest is home." },
+  { src: "/flash/cabbage-spray.jpg?v=crops", kicker: "Farmer", title: "In the standing crop", fit: "cover", quote: "Mirhaj Chemicals stands with the farmer through every season, from the first spray in the standing crop to the last sack of the harvest." },
+  { src: "/flash/field-team.jpg?v=crops", kicker: "Farmer", title: "The harvest", fit: "cover", quote: "A good season begins in the soil. Mirhaj Chemicals keeps the field protected so the crop can reach the market, and the farmer can keep his year." },
+  { src: "/flash/mustard.jpg?v=crops", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "When the mustard comes into flower, Mirhaj Chemicals has already stood with that field from the first leaf to the yellow bloom." },
+  { src: "/flash/paddy.jpg?v=crops", kicker: "Paddy", title: "The paddy crop", fit: "cover", quote: "In the standing paddy, Mirhaj Chemicals keeps the crop safe from the nursery to the full grain." },
+  { src: "/flash/wheat-field.jpg?v=crops", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "From the green wheat to the ripe ear, Mirhaj Chemicals stays with the field until the harvest is home." },
 ];
 
 type FlashCard = {
@@ -290,21 +290,21 @@ export function CataloguePage() {
             {[
               {
                 href: "#range",
-                src: "/flash/cabbage-spray.jpg?v=crop",
+                src: "/flash/cabbage-spray.jpg?v=crops",
                 kicker: "The range",
                 title: "Packs for the crop in front of you",
                 action: "See the products",
               },
               {
                 href: "#about",
-                src: "/flash/field-team.jpg?v=crop",
+                src: "/flash/field-team.jpg?v=crops",
                 kicker: "The company",
                 title: "Made for dealers and farmers",
                 action: "About us",
               },
               {
                 href: "#enquiry",
-                src: "/flash/cabbage-spray.jpg?v=crop",
+                src: "/flash/mustard.jpg?v=crops",
                 kicker: "The field",
                 title: "Ask before the season starts",
                 action: "Enquiry now",
@@ -487,11 +487,11 @@ export function CataloguePage() {
             <h2 className="mt-1 font-display text-3xl">Fields and packs</h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
               {[
-                { src: "/flash/cabbage-spray.jpg?v=crop", title: "Protected spray in cabbage" },
-                { src: "/flash/field-team.jpg?v=crop", title: "Team in the standing crop" },
-                { src: "/flash/cabbage-spray.jpg?v=crop", title: "Spraying the paddy" },
+                { src: "/flash/mustard.jpg?v=crops", title: "Mustard in flower" },
+                { src: "/flash/paddy.jpg?v=crops", title: "Standing paddy" },
+                { src: "/flash/wheat-field.jpg?v=crops", title: "Wheat before harvest" },
               ].map((shot) => (
-                <figure key={shot.src} className="overflow-hidden rounded-2xl border border-ink/10 bg-paper">
+                <figure key={shot.title} className="overflow-hidden rounded-2xl border border-ink/10 bg-paper">
                   <img src={shot.src} alt={shot.title} className="h-56 w-full object-contain" />
                   <figcaption className="px-3 py-2 text-sm font-medium">{shot.title}</figcaption>
                 </figure>
