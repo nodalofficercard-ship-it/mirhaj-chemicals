@@ -36,9 +36,9 @@ const SAFETY = [
 
 const FLASH_SCENES: FlashCard[] = [
   { src: "/flash/hero-wheat.jpg?v=2", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "Wheat to harvest. We stay with the field." },
-  { src: "/flash/hero-tomato.jpg?v=2", kicker: "Tomato", title: "The tomato crop", fit: "cover", quote: "A good season starts in the soil." },
+  { src: "/flash/hero-tomato.jpg?v=2", kicker: "Tomato", title: "The tomato crop", fit: "cover", quote: "Tomato crop to harvest. A good season starts in the soil." },
   { src: "/flash/hero-mustard.jpg?v=2", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "Mustard in flower. We stand with the field." },
-  { src: "/flash/hero-potato.jpg?v=2", kicker: "Potato", title: "The potato crop", fit: "cover", quote: "Potato at harvest. We stand with the farmer." },
+  { src: "/flash/hero-potato.jpg?v=2", kicker: "Potato", title: "The potato crop", fit: "cover", quote: "Potato crop at harvest. We stand with the farmer." },
 ];
 
 type FlashCard = {
