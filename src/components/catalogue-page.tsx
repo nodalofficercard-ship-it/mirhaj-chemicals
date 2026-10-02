@@ -128,13 +128,13 @@ function SiteHeader() {
         </div>
         <a
           href="#enquiry"
-          className="ml-auto hidden min-h-12 items-center rounded-full bg-teal px-5 text-base font-bold text-paper sm:inline-flex"
+          className="ml-auto hidden min-h-12 items-center rounded-full bg-[#d31212] px-5 text-base font-bold text-white sm:inline-flex"
         >
           Enquiry now
         </a>
         <a
           href="#enquiry"
-          className="ml-auto inline-flex min-h-12 items-center rounded-full bg-teal px-5 text-base font-bold text-paper sm:hidden"
+          className="ml-auto inline-flex min-h-12 items-center rounded-full bg-[#d31212] px-5 text-base font-bold text-white sm:hidden"
         >
           Enquiry now
         </a>
