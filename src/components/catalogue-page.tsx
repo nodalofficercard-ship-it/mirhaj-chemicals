@@ -46,7 +46,7 @@ const FLASH_PACKS: FlashCard[] = [
   ["pound-up", "Pound Up"],
   ["mira-71", "Mira-71"],
   ["pookie-zyme", "Pookie Zyme"],
-  ["ballistic", "Ballistic"],
+  ["ballistic", "Lumora Glow"],
   ["cluster-75", "Cluster-75"],
   ["futerra", "Futerra"],
   ["miracle", "Miracle"],
