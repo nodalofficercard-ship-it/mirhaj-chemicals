@@ -191,22 +191,31 @@ function FlashStage() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const quote = FLASH_SCENES[index]?.quote ?? "";
+  const scene = FLASH_SCENES[index] ?? FLASH_SCENES[0];
 
   return (
     <div className="relative h-[88vh] min-h-[620px] overflow-hidden bg-[#1a120c]">
-      {FLASH_SCENES.map((card, i) => (
-        <img
-          key={card.src}
-          src={card.src}
-          alt={card.title}
-          className={`flash-shot absolute inset-0 h-full w-full object-cover ${i === index ? "is-on" : ""}`}
-        />
-      ))}
+      <img
+        key={scene.src}
+        src={scene.src}
+        alt={scene.title}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
       <div className="pointer-events-none absolute inset-0 bg-black/35" />
       <p className="absolute inset-0 z-10 flex items-center justify-center px-6 text-center text-3xl font-black leading-snug tracking-tight text-[#e7c56a] sm:px-16 sm:text-5xl md:text-6xl" style={{ textShadow: "0 3px 18px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,1)" }}>
-        <span className="max-w-5xl">{quote}</span>
+        <span className="max-w-5xl">{scene.quote}</span>
       </p>
+      <div className="absolute bottom-6 left-0 right-0 z-10 flex justify-center gap-2">
+        {FLASH_SCENES.map((card, i) => (
+          <button
+            key={card.src}
+            type="button"
+            aria-label={card.title}
+            onClick={() => setIndex(i)}
+            className={`h-2.5 rounded-full ${i === index ? "w-8 bg-white" : "w-2.5 bg-white/70"}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
