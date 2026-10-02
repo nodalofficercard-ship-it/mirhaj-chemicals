@@ -118,7 +118,7 @@ function SiteHeader() {
         </a>
       </div>
       <div className="hidden border-b border-[#0c4f86]/30 bg-white sm:block">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-8 py-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-center gap-3 px-4 py-2">
           {social.map((item) => (
             <a
               key={item.name}
@@ -149,7 +149,7 @@ function SiteHeader() {
           ))}
         </div>
       </nav>
-      <div className="flex items-center justify-between gap-2 border-b border-[#0c4f86]/30 bg-white px-3 py-2 sm:hidden">
+      <div className="flex items-center justify-center gap-2 border-b border-[#0c4f86]/30 bg-white px-3 py-2 sm:hidden">
         {social.map((item) => (
           <a
             key={item.name}
