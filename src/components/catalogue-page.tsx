@@ -37,7 +37,7 @@ const SAFETY = [
 const FLASH_SCENES: FlashCard[] = [
   { src: "/flash/hero-wheat.jpg?v=2", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "Wheat to harvest. We stay with the field." },
   { src: "/flash/hero-tomato.jpg?v=3", kicker: "Tomato", title: "The tomato crop", fit: "cover", quote: "Tomato crop to harvest. A good season starts in the soil." },
-  { src: "/flash/hero-mustard.jpg?v=2", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "Mustard in flower. We stand with the field." },
+  { src: "/flash/hero-vegetables.jpg?v=1", kicker: "Vegetables", title: "The vegetable crop", fit: "cover", quote: "Vegetables for the market. We stand with the field." },
   { src: "/flash/hero-potato.jpg?v=3", kicker: "Potato", title: "The potato crop", fit: "cover", quote: "Potato crop at harvest. We stand with the farmer." },
 ];
 
@@ -177,7 +177,7 @@ function SiteHeader() {
 const HERO_QUOTES = [
   "Mirhaj Chemicals stands with the farmer through every season, from the first spray in the standing crop to the last sack of the harvest.",
   "A good season begins in the soil. Mirhaj Chemicals keeps the field protected so the crop can reach the market, and the farmer can keep his year.",
-  "When the mustard comes into flower, Mirhaj Chemicals has already stood with that field from the first leaf to the yellow bloom.",
+  "From the field to the market, Mirhaj Chemicals stands with the vegetable crop.",
   "From the green wheat to the ripe ear, Mirhaj Chemicals stays with the field until the harvest is home.",
 ];
 
@@ -308,7 +308,7 @@ export function CataloguePage() {
               },
               {
                 href: "#enquiry",
-                src: "/flash/hero-mustard.jpg?v=1",
+                src: "/flash/hero-vegetables.jpg?v=1",
                 kicker: "The field",
                 title: "Ask before the season starts",
                 action: "Enquiry now",
