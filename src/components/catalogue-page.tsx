@@ -35,10 +35,10 @@ const SAFETY = [
 ];
 
 const FLASH_SCENES: FlashCard[] = [
-  { src: "/flash/hero-wheat.jpg?v=2", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "Wheat to harvest. Mirhaj Chemicals stays with the field." },
+  { src: "/flash/hero-wheat.jpg?v=2", kicker: "Wheat", title: "The wheat crop", fit: "cover", quote: "Wheat to harvest. We stay with the field." },
   { src: "/flash/hero-tomato.jpg?v=2", kicker: "Tomato", title: "The tomato crop", fit: "cover", quote: "A good season starts in the soil." },
-  { src: "/flash/hero-mustard.jpg?v=2", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "Mustard in flower. Mirhaj Chemicals stands with the field." },
-  { src: "/flash/hero-potato.jpg?v=2", kicker: "Potato", title: "The potato crop", fit: "cover", quote: "Potato at harvest. Mirhaj Chemicals stands with the farmer." },
+  { src: "/flash/hero-mustard.jpg?v=2", kicker: "Mustard", title: "The mustard crop", fit: "cover", quote: "Mustard in flower. We stand with the field." },
+  { src: "/flash/hero-potato.jpg?v=2", kicker: "Potato", title: "The potato crop", fit: "cover", quote: "Potato at harvest. We stand with the farmer." },
 ];
 
 type FlashCard = {
@@ -200,10 +200,15 @@ function FlashStage() {
         alt={scene.title}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="pointer-events-none absolute inset-0 bg-black/35" />
-      <p className="absolute inset-0 z-10 flex items-center justify-center px-6 text-center text-3xl font-black leading-snug tracking-tight text-[#e7c56a] sm:px-16 sm:text-5xl md:text-6xl" style={{ textShadow: "0 3px 18px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,1)" }}>
-        <span className="max-w-5xl">{scene.quote}</span>
-      </p>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-black/40 to-black/55" />
+      <div className="absolute inset-0 z-10 flex items-center justify-center px-6 sm:px-16">
+        <blockquote className="max-w-4xl text-center text-white">
+          <p className="font-display text-4xl font-medium italic leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl" style={{ textShadow: "0 2px 28px rgba(0,0,0,0.55)" }}>
+            {scene.quote}
+          </p>
+          <span className="mx-auto mt-6 block h-px w-16 bg-white" />
+        </blockquote>
+      </div>
       <div className="absolute bottom-6 left-0 right-0 z-10 flex justify-center gap-2">
         {FLASH_SCENES.map((card, i) => (
           <button
