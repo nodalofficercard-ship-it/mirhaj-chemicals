@@ -131,13 +131,13 @@ function SiteHeader() {
           </a>
         </div>
       </div>
-      <nav aria-label="Site" className="bg-[#2f9e3a]">
-        <div className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-3 py-3">
+      <nav aria-label="Site" className="border-y border-white/10 bg-[#146b28] shadow-[0_8px_24px_rgba(12,40,18,0.18)]">
+        <div className="mx-auto flex max-w-6xl items-center gap-1.5 overflow-x-auto px-3 py-1.5">
           {TABS.map((tab) => (
             <a
               key={tab.href}
               href={tab.href}
-              className="shrink-0 rounded-full bg-white px-4 py-2.5 text-lg font-bold tracking-tight text-ink hover:bg-[#e7c56a]"
+              className="shrink-0 rounded-full border border-white/70 bg-white/95 px-3 py-1 text-[13px] font-semibold tracking-[0.01em] text-[#14301c] shadow-[0_1px_0_rgba(255,255,255,0.8)_inset] transition hover:-translate-y-px hover:border-[#e7c56a] hover:bg-[#fff8e6]"
             >
               {tab.label}
             </a>
