@@ -163,8 +163,8 @@ function SiteHeader() {
 }
 
 const HERO_QUOTES = [
-  "Mirhaj Chemicals stands with the farmer from the first spray to the last harvest.",
-  "A good season begins in the soil, and Mirhaj Chemicals keeps that crop protected.",
+  "Mirhaj Chemicals stands with the farmer through every season, from the first spray in the standing crop to the last sack of the harvest.",
+  "A good season begins in the soil. Mirhaj Chemicals keeps the field protected so the crop can reach the market, and the farmer can keep his year.",
 ];
 
 function FlashStage() {
@@ -188,8 +188,8 @@ function FlashStage() {
           className={`flash-shot absolute inset-0 h-full w-full object-cover ${i === index ? "is-on" : ""}`}
         />
       ))}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/55 to-transparent" />
-      <p className="absolute inset-x-0 bottom-10 z-10 mx-auto max-w-4xl px-6 text-center text-xl font-medium leading-snug tracking-tight text-white sm:text-3xl">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black/75 to-transparent" />
+      <p className="absolute inset-x-0 bottom-8 z-10 mx-auto max-w-5xl px-6 text-center text-2xl font-bold leading-snug tracking-tight text-white sm:text-4xl" style={{ textShadow: "0 2px 16px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,1)" }}>
         {quote}
       </p>
     </div>
