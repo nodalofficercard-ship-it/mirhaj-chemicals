@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronDown, Mail, MapPin, Phone, Quote, Search, ShieldCheck, X } from "lucide-react";
+import { ChevronDown, Mail, MapPin, Phone, Search, ShieldCheck, X } from "lucide-react";
 import { CATEGORIES, PRODUCTS, packPhoto, productsInIndex, type Category, type Product } from "@/data/catalogue";
 
 const PHONE = "8175903666";
@@ -174,7 +174,7 @@ function SiteHeader() {
               <a href="/#vision" onClick={() => setAboutOpen(false)} className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-black hover:text-[#0c4f86]">Vision</a>
               <a href="/#mission" onClick={() => setAboutOpen(false)} className="shrink-0 rounded-full px-3 py-1 text-sm font-bold text-black hover:text-[#0c4f86]">Mission</a>
               <a href="/founder" className="inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1 text-sm font-bold text-[#0c4f86] hover:underline">
-                <Quote className="size-4" aria-hidden />
+                <MapPin className="size-4 fill-[#0c4f86]" aria-hidden />
                 MD Message
               </a>
             </div>
@@ -740,11 +740,11 @@ export function FounderPage() {
               className="mx-auto w-full max-w-[280px] rounded-2xl border border-ink/10 bg-white object-cover"
             />
             <div>
-              <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-teal">
-                <Quote className="size-4" aria-hidden />
-                MD Message
-              </p>
-              <h1 className="mt-1 font-display text-4xl">Founder and MD</h1>
+              <p className="text-xs font-semibold uppercase tracking-widest text-teal">MD Message</p>
+              <h1 className="mt-1 inline-flex items-center gap-3 font-display text-4xl">
+                Founder and MD
+                <MapPin className="size-9 fill-[#0c4f86] text-[#0c4f86]" aria-hidden />
+              </h1>
               <p className="mt-4 text-ink/80">
                 Mirhaj Chemicals was started so a dealer and a farmer could trust the pack in their hand. The work is simple to say and hard to keep: the right product, made properly, explained in the field, and priced so it still makes sense at harvest.
               </p>
