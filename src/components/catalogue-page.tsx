@@ -110,7 +110,7 @@ function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2.5">
         <a href="#top" className="flex shrink-0 items-center gap-3">
           <img src="/brand/logo-complete.jpg" alt="Mirhaj Chemicals" className="h-14 w-auto object-contain object-left" />
-          <span className="hidden text-2xl font-black italic leading-tight text-[#0c4f86] sm:block">Mirhaj Chemicals Private Limited</span>
+          <span className="hidden font-display text-2xl font-semibold italic leading-tight tracking-wide text-[#0c4f86] sm:block">Mirhaj Chemicals Private Limited</span>
         </a>
         <div className="ml-auto hidden items-center gap-2 sm:flex">
           <div className="flex items-center gap-1.5">
